@@ -1,0 +1,34 @@
+|FPGA_Main
+clk => mbed_data[0]~reg0.CLK
+clk => mbed_data[1]~reg0.CLK
+clk => mbed_data[2]~reg0.CLK
+clk => mbed_data[3]~reg0.CLK
+clk => mbed_data[4]~reg0.CLK
+clk => mbed_data[5]~reg0.CLK
+clk => mbed_data[6]~reg0.CLK
+clk => mbed_data[7]~reg0.CLK
+clk => mbed_data[8]~reg0.CLK
+clk => pulse_count[0]~reg0.CLK
+clk => pulse_count[1]~reg0.CLK
+clk => pulse_count[2]~reg0.CLK
+clk => pulse_count[3]~reg0.CLK
+clk => sample~reg0.CLK
+mbed_pulse => mbed_data.DATAA
+mbed_pulse => sample.DATAB
+mbed_data[0] <= mbed_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[1] <= mbed_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[2] <= mbed_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[3] <= mbed_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[4] <= mbed_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[5] <= mbed_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[6] <= mbed_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[7] <= mbed_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mbed_data[8] <= mbed_data[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sample <= sample~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pulse_count[0] <= pulse_count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pulse_count[1] <= pulse_count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pulse_count[2] <= pulse_count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pulse_count[3] <= pulse_count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+output_ready <= sample~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

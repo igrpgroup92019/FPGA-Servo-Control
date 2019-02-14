@@ -1,0 +1,19 @@
+module Servo_Driver(clk, set_rotation, input_rotation, pulse);
+input clk, set_rotation;
+input [7:0] input_rotation;
+output pulse;
+
+reg [7:0] rotation_value;
+reg pulse;
+
+always @ (posedge set_rotation)
+begin
+	
+end
+
+always @ (posedge clk)
+begin
+
+end
+
+endmodule 
