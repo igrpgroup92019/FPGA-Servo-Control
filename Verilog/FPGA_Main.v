@@ -1,4 +1,4 @@
-module FPGA_Main(clk, mbed_pulse, mbed_data, sample, pulse_count, output_ready);
+module FPGA_Main(clk, mbed_pulse, mbed_data, sample, pulse_count, output_ready, pulse);
 input clk, mbed_pulse;
 output mbed_data;
 
@@ -6,6 +6,7 @@ output mbed_data;
 output sample;
 output [3:0] pulse_count;
 output output_ready;
+output pulse;
 
 // pulse date collection
 reg [8:0] mbed_data;
@@ -14,6 +15,9 @@ reg [3:0] pulse_count;
 
 // for sending data to servos
 assign output_ready = !sample;
+
+// servos
+Servo_Driver(clk, output_ready, output_ready, mbed_data[7:0], pulse);
 
 always @ (posedge clk)
 begin

@@ -1,5 +1,5 @@
 Fitter report for FPGA_Main
-Thu Feb 14 21:36:01 2019
+Fri Feb 15 01:17:50 2019
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -61,18 +61,18 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                    ;
 +------------------------------------+----------------------------------------------+
-; Fitter Status                      ; Successful - Thu Feb 14 21:36:01 2019        ;
+; Fitter Status                      ; Successful - Fri Feb 15 01:17:50 2019        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; FPGA_Main                                    ;
 ; Top-level Entity Name              ; FPGA_Main                                    ;
 ; Family                             ; Cyclone II                                   ;
 ; Device                             ; EP2C20F484C7                                 ;
 ; Timing Models                      ; Final                                        ;
-; Total logic elements               ; 16 / 18,752 ( < 1 % )                        ;
-;     Total combinational functions  ; 7 / 18,752 ( < 1 % )                         ;
-;     Dedicated logic registers      ; 14 / 18,752 ( < 1 % )                        ;
-; Total registers                    ; 14                                           ;
-; Total pins                         ; 17 / 315 ( 5 % )                             ;
+; Total logic elements               ; 76 / 18,752 ( < 1 % )                        ;
+;     Total combinational functions  ; 75 / 18,752 ( < 1 % )                        ;
+;     Dedicated logic registers      ; 50 / 18,752 ( < 1 % )                        ;
+; Total registers                    ; 50                                           ;
+; Total pins                         ; 18 / 315 ( 6 % )                             ;
 ; Total virtual pins                 ; 0                                            ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                          ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                               ;
@@ -151,8 +151,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                    ; Value              ;
 +-------------------------+--------------------+
 ; Placement               ;                    ;
-;     -- Requested        ; 0 / 43 ( 0.00 % )  ;
-;     -- Achieved         ; 0 / 43 ( 0.00 % )  ;
+;     -- Requested        ; 0 / 149 ( 0.00 % ) ;
+;     -- Achieved         ; 0 / 149 ( 0.00 % ) ;
 ;                         ;                    ;
 ; Routing (by Connection) ;                    ;
 ;     -- Requested        ; 0 / 0 ( 0.00 % )   ;
@@ -174,7 +174,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +----------------+---------+-------------------+-------------------------+-------------------+
-; Top            ; 43      ; 0                 ; N/A                     ; Source File       ;
+; Top            ; 149     ; 0                 ; N/A                     ; Source File       ;
 +----------------+---------+-------------------+-------------------------+-------------------+
 
 
@@ -189,48 +189,48 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Total logic elements                        ; 16 / 18,752 ( < 1 % ) ;
-;     -- Combinational with no register       ; 2                     ;
-;     -- Register only                        ; 9                     ;
-;     -- Combinational with a register        ; 5                     ;
+; Total logic elements                        ; 76 / 18,752 ( < 1 % ) ;
+;     -- Combinational with no register       ; 26                    ;
+;     -- Register only                        ; 1                     ;
+;     -- Combinational with a register        ; 49                    ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 4                     ;
-;     -- 3 input functions                    ; 2                     ;
-;     -- <=2 input functions                  ; 1                     ;
-;     -- Register only                        ; 9                     ;
+;     -- 4 input functions                    ; 11                    ;
+;     -- 3 input functions                    ; 24                    ;
+;     -- <=2 input functions                  ; 40                    ;
+;     -- Register only                        ; 1                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 7                     ;
-;     -- arithmetic mode                      ; 0                     ;
+;     -- normal mode                          ; 22                    ;
+;     -- arithmetic mode                      ; 53                    ;
 ;                                             ;                       ;
-; Total registers*                            ; 14 / 19,649 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 14 / 18,752 ( < 1 % ) ;
+; Total registers*                            ; 50 / 19,649 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 50 / 18,752 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 897 ( 0 % )       ;
 ;                                             ;                       ;
-; Total LABs:  partially or completely used   ; 2 / 1,172 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 6 / 1,172 ( < 1 % )   ;
 ; User inserted logic elements                ; 0                     ;
 ; Virtual pins                                ; 0                     ;
-; I/O pins                                    ; 17 / 315 ( 5 % )      ;
+; I/O pins                                    ; 18 / 315 ( 6 % )      ;
 ;     -- Clock pins                           ; 1 / 8 ( 13 % )        ;
-; Global signals                              ; 1                     ;
+; Global signals                              ; 2                     ;
 ; M4Ks                                        ; 0 / 52 ( 0 % )        ;
 ; Total block memory bits                     ; 0 / 239,616 ( 0 % )   ;
 ; Total block memory implementation bits      ; 0 / 239,616 ( 0 % )   ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 52 ( 0 % )        ;
 ; PLLs                                        ; 0 / 4 ( 0 % )         ;
-; Global clocks                               ; 1 / 16 ( 6 % )        ;
+; Global clocks                               ; 2 / 16 ( 13 % )       ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )         ;
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )         ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%          ;
-; Peak interconnect usage (total/H/V)         ; 0% / 0% / 0%          ;
+; Peak interconnect usage (total/H/V)         ; 1% / 0% / 1%          ;
 ; Maximum fan-out node                        ; clk~clkctrl           ;
-; Maximum fan-out                             ; 14                    ;
-; Highest non-global fan-out signal           ; mbed_data[0]~0        ;
-; Highest non-global fan-out                  ; 9                     ;
-; Total fan-out                               ; 88                    ;
-; Average fan-out                             ; 1.80                  ;
+; Maximum fan-out                             ; 34                    ;
+; Highest non-global fan-out signal           ; sample~reg0           ;
+; Highest non-global fan-out                  ; 29                    ;
+; Total fan-out                               ; 346                   ;
+; Average fan-out                             ; 2.32                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -241,8 +241,8 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; clk        ; M1    ; 1        ; 0            ; 13           ; 2           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; mbed_pulse ; R6    ; 1        ; 0            ; 7            ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; clk        ; M1    ; 1        ; 0            ; 13           ; 2           ; 2                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; mbed_pulse ; J1    ; 2        ; 0            ; 18           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -251,38 +251,39 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 +----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Name           ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
 +----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
-; mbed_data[0]   ; V1    ; 1        ; 0            ; 6            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[1]   ; U1    ; 1        ; 0            ; 7            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[2]   ; E7    ; 3        ; 5            ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[3]   ; R5    ; 1        ; 0            ; 7            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[4]   ; L8    ; 2        ; 0            ; 19           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[5]   ; U2    ; 1        ; 0            ; 7            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[6]   ; P5    ; 1        ; 0            ; 9            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[7]   ; R8    ; 1        ; 0            ; 9            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; mbed_data[8]   ; R1    ; 1        ; 0            ; 8            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; output_ready   ; T5    ; 1        ; 0            ; 6            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; pulse_count[0] ; W2    ; 1        ; 0            ; 4            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; pulse_count[1] ; N4    ; 1        ; 0            ; 10           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; pulse_count[2] ; R2    ; 1        ; 0            ; 8            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; pulse_count[3] ; T1    ; 1        ; 0            ; 8            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; sample         ; V2    ; 1        ; 0            ; 6            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[0]   ; C16   ; 4        ; 44           ; 27           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[1]   ; T15   ; 7        ; 39           ; 0            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[2]   ; G18   ; 5        ; 50           ; 22           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[3]   ; H1    ; 2        ; 0            ; 19           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[4]   ; J4    ; 2        ; 0            ; 18           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[5]   ; H9    ; 3        ; 15           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[6]   ; AB18  ; 7        ; 42           ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[7]   ; Y3    ; 1        ; 0            ; 3            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; mbed_data[8]   ; H19   ; 5        ; 50           ; 16           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; output_ready   ; B19   ; 4        ; 46           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; pulse          ; D1    ; 2        ; 0            ; 22           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; pulse_count[0] ; AA18  ; 7        ; 44           ; 0            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; pulse_count[1] ; V22   ; 6        ; 50           ; 7            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; pulse_count[2] ; H4    ; 2        ; 0            ; 21           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; pulse_count[3] ; U14   ; 7        ; 39           ; 0            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; sample         ; K22   ; 5        ; 50           ; 15           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 +----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
-+------------------------------------------------------------+
-; I/O Bank Usage                                             ;
-+----------+------------------+---------------+--------------+
-; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
-+----------+------------------+---------------+--------------+
-; 1        ; 15 / 41 ( 37 % ) ; 3.3V          ; --           ;
-; 2        ; 3 / 33 ( 9 % )   ; 3.3V          ; --           ;
-; 3        ; 1 / 43 ( 2 % )   ; 3.3V          ; --           ;
-; 4        ; 0 / 40 ( 0 % )   ; 3.3V          ; --           ;
-; 5        ; 0 / 39 ( 0 % )   ; 3.3V          ; --           ;
-; 6        ; 1 / 36 ( 3 % )   ; 3.3V          ; --           ;
-; 7        ; 0 / 40 ( 0 % )   ; 3.3V          ; --           ;
-; 8        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
-+----------+------------------+---------------+--------------+
++-----------------------------------------------------------+
+; I/O Bank Usage                                            ;
++----------+-----------------+---------------+--------------+
+; I/O Bank ; Usage           ; VCCIO Voltage ; VREF Voltage ;
++----------+-----------------+---------------+--------------+
+; 1        ; 2 / 41 ( 5 % )  ; 3.3V          ; --           ;
+; 2        ; 7 / 33 ( 21 % ) ; 3.3V          ; --           ;
+; 3        ; 1 / 43 ( 2 % )  ; 3.3V          ; --           ;
+; 4        ; 2 / 40 ( 5 % )  ; 3.3V          ; --           ;
+; 5        ; 3 / 39 ( 8 % )  ; 3.3V          ; --           ;
+; 6        ; 2 / 36 ( 6 % )  ; 3.3V          ; --           ;
+; 7        ; 4 / 40 ( 10 % ) ; 3.3V          ; --           ;
+; 8        ; 0 / 43 ( 0 % )  ; 3.3V          ; --           ;
++----------+-----------------+---------------+--------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -329,7 +330,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; AA15     ; 138        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA16     ; 140        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA17     ; 144        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AA18     ; 153        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AA18     ; 153        ; 7        ; pulse_count[0]                           ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AA19     ; 162        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA20     ; 164        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA21     ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -351,7 +352,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; AB15     ; 137        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB16     ; 139        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB17     ; 143        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AB18     ; 152        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AB18     ; 152        ; 7        ; mbed_data[6]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AB19     ; 161        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB20     ; 163        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB21     ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -374,7 +375,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; B16      ; 270        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B17      ; 264        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B18      ; 250        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B19      ; 248        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; B19      ; 248        ; 4        ; output_ready                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; B20      ; 246        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B21      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; B22      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -393,14 +394,14 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; C13      ; 275        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C14      ; 260        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C15      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; C16      ; 254        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; C16      ; 254        ; 4        ; mbed_data[0]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C17      ; 245        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C18      ; 244        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C19      ; 238        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; C20      ; 239        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; C21      ; 236        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; C22      ; 237        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; D1       ; 14         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; D1       ; 14         ; 2        ; pulse                                    ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; D2       ; 15         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D3       ; 2          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D4       ; 3          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -428,7 +429,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; E4       ; 7          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E5       ;            ;          ; VCCD_PLL3                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; E6       ;            ;          ; VCCA_PLL3                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; E7       ; 316        ; 3        ; mbed_data[2]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; E7       ; 316        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E8       ; 308        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E9       ; 301        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E10      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -483,20 +484,20 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; G15      ; 261        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G16      ; 252        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G17      ; 231        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; G18      ; 232        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; G18      ; 232        ; 5        ; mbed_data[2]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; G19      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; G20      ; 233        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G21      ; 221        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G22      ; 222        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H1       ; 24         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; H1       ; 24         ; 2        ; mbed_data[3]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; H2       ; 25         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H3       ; 27         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H4       ; 17         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; H4       ; 17         ; 2        ; pulse_count[2]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; H5       ; 18         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H6       ; 19         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H7       ; 318        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H8       ; 314        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; H9       ; 300        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; H9       ; 300        ; 3        ; mbed_data[5]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H10      ; 299        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H11      ; 290        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H12      ; 274        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -506,14 +507,14 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; H16      ; 219        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H17      ; 226        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H18      ; 225        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H19      ; 214        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; H19      ; 214        ; 5        ; mbed_data[8]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; H20      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; H21      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; H22      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; J1       ; 29         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; J1       ; 29         ; 2        ; mbed_pulse                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J2       ; 30         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J3       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; J4       ; 28         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; J4       ; 28         ; 2        ; mbed_data[4]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J5       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; J6       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; J7       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -553,7 +554,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; K19      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; K20      ; 215        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; K21      ; 209        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; K22      ; 210        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; K22      ; 210        ; 5        ; sample                                   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; L1       ; 38         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; L2       ; 39         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; L3       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -561,7 +562,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; L5       ; 34         ; 2        ; #TDO                                     ; output ;              ;         ; --         ;                 ; --       ; --           ;
 ; L6       ; 35         ; 2        ; ^DCLK                                    ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; L7       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; L8       ; 26         ; 2        ; mbed_data[4]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; L8       ; 26         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L9       ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; L10      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; L11      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -601,7 +602,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; N1       ; 45         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N2       ; 46         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N3       ; 51         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; N4       ; 52         ; 1        ; pulse_count[1]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N4       ; 52         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N5       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; N6       ; 49         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N7       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -624,7 +625,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; P2       ; 48         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P3       ; 50         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P4       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; P5       ; 55         ; 1        ; mbed_data[6]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P5       ; 55         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P6       ; 56         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P7       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; P8       ; 95         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -642,14 +643,14 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; P20      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; P21      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; P22      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; R1       ; 57         ; 1        ; mbed_data[8]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; R2       ; 58         ; 1        ; pulse_count[2]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R1       ; 57         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; R2       ; 58         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; R4       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; R5       ; 63         ; 1        ; mbed_data[3]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; R6       ; 64         ; 1        ; mbed_pulse                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R5       ; 63         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; R6       ; 64         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R7       ; 54         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; R8       ; 53         ; 1        ; mbed_data[7]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R8       ; 53         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R9       ; 109        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R10      ; 108        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; R11      ; 116        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -664,11 +665,11 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; R20      ; 192        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R21      ; 190        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R22      ; 191        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; T1       ; 59         ; 1        ; pulse_count[3]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; T1       ; 59         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T2       ; 60         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T3       ; 69         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T4       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; T5       ; 67         ; 1        ; output_ready                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; T5       ; 67         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T6       ; 68         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T7       ; 91         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T8       ; 90         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -678,7 +679,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; T12      ; 131        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; T14      ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; T15      ; 147        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; T15      ; 147        ; 7        ; mbed_data[1]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; T16      ; 156        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T17      ;            ;          ; GND_PLL4                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; T18      ; 171        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -686,8 +687,8 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; T20      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; T21      ; 188        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T22      ; 189        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; U1       ; 61         ; 1        ; mbed_data[1]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; U2       ; 62         ; 1        ; mbed_data[5]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U1       ; 61         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; U2       ; 62         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U3       ; 70         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U4       ; 80         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U5       ;            ;          ; GND_PLL1                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -699,7 +700,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; U11      ; 123        ; 8        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; U12      ; 124        ; 8        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; U13      ; 132        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; U14      ; 146        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; U14      ; 146        ; 7        ; pulse_count[3]                           ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; U15      ; 157        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; U16      ;            ;          ; VCCA_PLL4                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; U17      ;            ;          ; VCCD_PLL4                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -708,8 +709,8 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; U20      ; 176        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U21      ; 182        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U22      ; 183        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; V1       ; 65         ; 1        ; mbed_data[0]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; V2       ; 66         ; 1        ; sample                                   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V1       ; 65         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; V2       ; 66         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V4       ; 81         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V5       ;            ;          ; GND_PLL1                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -729,9 +730,9 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; V19      ; 166        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V20      ; 173        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V21      ; 180        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; V22      ; 181        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; V22      ; 181        ; 6        ; pulse_count[1]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; W1       ; 71         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; W2       ; 72         ; 1        ; pulse_count[0]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; W2       ; 72         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W3       ; 75         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W4       ; 76         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W5       ; 79         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -754,7 +755,7 @@ The pin-out file can be found in E:/My Stuff/University/Year 3/Robotics Project/
 ; W22      ; 175        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y1       ; 73         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y2       ; 74         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; Y3       ; 77         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; Y3       ; 77         ; 1        ; mbed_data[7]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; Y4       ; 78         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y5       ; 86         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y6       ; 87         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -815,13 +816,19 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                           ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
-; |FPGA_Main                 ; 16 (16)     ; 14 (14)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 17   ; 0            ; 2 (2)        ; 9 (9)             ; 5 (5)            ; |FPGA_Main          ; work         ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                            ;
++------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                     ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                                                                              ; Library Name ;
++------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |FPGA_Main                                     ; 76 (15)     ; 50 (14)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 18   ; 0            ; 26 (1)       ; 1 (1)             ; 49 (5)           ; |FPGA_Main                                                                                                                       ; work         ;
+;    |Servo_Driver:comb_4|                       ; 69 (49)     ; 36 (36)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 25 (13)      ; 0 (0)             ; 44 (36)          ; |FPGA_Main|Servo_Driver:comb_4                                                                                                   ;              ;
+;       |lpm_mult:Mult0|                         ; 20 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (0)       ; 0 (0)             ; 8 (0)            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0                                                                                    ;              ;
+;          |multcore:mult_core|                  ; 20 (10)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (2)       ; 0 (0)             ; 8 (8)            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core                                                                 ;              ;
+;             |mpar_add:padder|                  ; 10 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (0)       ; 0 (0)             ; 0 (0)            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                 ;              ;
+;                |lpm_add_sub:adder[0]|          ; 10 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (0)       ; 0 (0)             ; 0 (0)            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                            ;              ;
+;                   |add_sub_3ch:auto_generated| ; 10 (10)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_3ch:auto_generated ;              ;
++------------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -845,133 +852,236 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; pulse_count[2] ; Output   ; --            ; --            ; --                    ; --  ;
 ; pulse_count[3] ; Output   ; --            ; --            ; --                    ; --  ;
 ; output_ready   ; Output   ; --            ; --            ; --                    ; --  ;
+; pulse          ; Output   ; --            ; --            ; --                    ; --  ;
 ; mbed_pulse     ; Input    ; (6) 4358 ps   ; (6) 4358 ps   ; --                    ; --  ;
 ; clk            ; Input    ; (0) 325 ps    ; (0) 325 ps    ; --                    ; --  ;
 +----------------+----------+---------------+---------------+-----------------------+-----+
 
 
-+--------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                               ;
-+--------------------------------+-------------------+---------+
-; Source Pin / Fanout            ; Pad To Core Index ; Setting ;
-+--------------------------------+-------------------+---------+
-; mbed_pulse                     ;                   ;         ;
-;      - sample~0                ; 1                 ; 6       ;
-;      - mbed_data[0]~reg0feeder ; 1                 ; 6       ;
-; clk                            ;                   ;         ;
-+--------------------------------+-------------------+---------+
++--------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                         ;
++--------------------------+-------------------+---------+
+; Source Pin / Fanout      ; Pad To Core Index ; Setting ;
++--------------------------+-------------------+---------+
+; mbed_pulse               ;                   ;         ;
+;      - mbed_data[0]~reg0 ; 0                 ; 6       ;
+;      - sample~reg0       ; 0                 ; 6       ;
+; clk                      ;                   ;         ;
++--------------------------+-------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                           ;
-+----------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name           ; Location         ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+----------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; clk            ; PIN_M1           ; 14      ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; mbed_data[0]~0 ; LCCOMB_X1_Y7_N20 ; 9       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; sample~reg0    ; LCFF_X2_Y7_N9    ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+----------------+------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                     ;
++----------------+-------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
+; Name           ; Location          ; Fan-Out ; Usage                                 ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++----------------+-------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
+; clk            ; PIN_M1            ; 2       ; Clock                                 ; no     ; --                   ; --               ; --                        ;
+; clk            ; PIN_M1            ; 34      ; Clock                                 ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; mbed_data[0]~0 ; LCCOMB_X46_Y17_N0 ; 10      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; sample~reg0    ; LCFF_X46_Y17_N1   ; 30      ; Clock enable, Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
+; sample~reg0    ; LCFF_X46_Y17_N1   ; 15      ; Clock                                 ; yes    ; Global Clock         ; GCLK14           ; --                        ;
++----------------+-------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                     ;
-+------+----------+---------+----------------------+------------------+---------------------------+
-; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+------+----------+---------+----------------------+------------------+---------------------------+
-; clk  ; PIN_M1   ; 14      ; Global Clock         ; GCLK3            ; --                        ;
-+------+----------+---------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                   ;
++-------------+-----------------+---------+----------------------+------------------+---------------------------+
+; Name        ; Location        ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-------------+-----------------+---------+----------------------+------------------+---------------------------+
+; clk         ; PIN_M1          ; 34      ; Global Clock         ; GCLK3            ; --                        ;
+; sample~reg0 ; LCFF_X46_Y17_N1 ; 15      ; Global Clock         ; GCLK14           ; --                        ;
++-------------+-----------------+---------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------+
-; Non-Global High Fan-Out Signals ;
-+---------------------+-----------+
-; Name                ; Fan-Out   ;
-+---------------------+-----------+
-; mbed_data[0]~0      ; 9         ;
-; sample~reg0         ; 8         ;
-; pulse_count[3]~reg0 ; 6         ;
-; pulse_count[1]~reg0 ; 6         ;
-; pulse_count[0]~reg0 ; 6         ;
-; pulse_count[2]~reg0 ; 5         ;
-; mbed_pulse          ; 2         ;
-; LessThan0~0         ; 2         ;
-; mbed_data[7]~reg0   ; 2         ;
-; mbed_data[6]~reg0   ; 2         ;
-; mbed_data[5]~reg0   ; 2         ;
-; mbed_data[4]~reg0   ; 2         ;
-; mbed_data[3]~reg0   ; 2         ;
-; mbed_data[2]~reg0   ; 2         ;
-; mbed_data[1]~reg0   ; 2         ;
-; mbed_data[0]~reg0   ; 2         ;
-; pulse_count~3       ; 1         ;
-; pulse_count~2       ; 1         ;
-; pulse_count~1       ; 1         ;
-; pulse_count~0       ; 1         ;
-; sample~0            ; 1         ;
-; mbed_data[8]~reg0   ; 1         ;
-+---------------------+-----------+
++---------------------------------------------------------------------------------+
+; Non-Global High Fan-Out Signals                                                 ;
++-----------------------------------------------------------------------+---------+
+; Name                                                                  ; Fan-Out ;
++-----------------------------------------------------------------------+---------+
+; sample~reg0                                                           ; 29      ;
+; mbed_data[0]~0                                                        ; 10      ;
+; mbed_data[4]~reg0                                                     ; 9       ;
+; mbed_data[0]~reg0                                                     ; 9       ;
+; mbed_data[5]~reg0                                                     ; 8       ;
+; mbed_data[2]~reg0                                                     ; 8       ;
+; mbed_data[1]~reg0                                                     ; 8       ;
+; mbed_data[6]~reg0                                                     ; 7       ;
+; pulse_count[3]~reg0                                                   ; 6       ;
+; pulse_count[1]~reg0                                                   ; 6       ;
+; pulse_count[0]~reg0                                                   ; 6       ;
+; mbed_data[7]~reg0                                                     ; 6       ;
+; mbed_data[3]~reg0                                                     ; 6       ;
+; pulse_count[2]~reg0                                                   ; 5       ;
+; mbed_pulse                                                            ; 2       ;
+; Servo_Driver:comb_4|counter[19]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[18]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[17]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[2]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[3]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[4]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[5]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[6]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[7]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[8]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[9]                                        ; 2       ;
+; Servo_Driver:comb_4|counter[10]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[11]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[12]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[13]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[14]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[15]                                       ; 2       ;
+; Servo_Driver:comb_4|counter[16]                                       ; 2       ;
+; clk                                                                   ; 1       ;
+; Servo_Driver:comb_4|pulse_length[4]~36                                ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[0][7]~9  ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[0][8]~8  ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[0][9]~7  ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[0][10]~6 ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[0][11]~5 ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[1][7]~4  ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[1][8]~3  ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[1][9]~2  ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[1][10]~1 ; 1       ;
+; Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|romout[1][11]~0 ; 1       ;
+; Servo_Driver:comb_4|LessThan0~30                                      ; 1       ;
+; Servo_Driver:comb_4|pulse_length[2]                                   ; 1       ;
+; Servo_Driver:comb_4|pulse_length[3]                                   ; 1       ;
+; Servo_Driver:comb_4|pulse_length[4]                                   ; 1       ;
+; pulse_count~3                                                         ; 1       ;
++-----------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------+
-; Interconnect Usage Summary                         ;
-+----------------------------+-----------------------+
-; Interconnect Resource Type ; Usage                 ;
-+----------------------------+-----------------------+
-; Block interconnects        ; 25 / 54,004 ( < 1 % ) ;
-; C16 interconnects          ; 0 / 2,100 ( 0 % )     ;
-; C4 interconnects           ; 17 / 36,000 ( < 1 % ) ;
-; Direct links               ; 7 / 54,004 ( < 1 % )  ;
-; Global clocks              ; 1 / 16 ( 6 % )        ;
-; Local interconnects        ; 13 / 18,752 ( < 1 % ) ;
-; R24 interconnects          ; 0 / 1,900 ( 0 % )     ;
-; R4 interconnects           ; 14 / 46,920 ( < 1 % ) ;
-+----------------------------+-----------------------+
++-----------------------------------------------------+
+; Interconnect Usage Summary                          ;
++----------------------------+------------------------+
+; Interconnect Resource Type ; Usage                  ;
++----------------------------+------------------------+
+; Block interconnects        ; 92 / 54,004 ( < 1 % )  ;
+; C16 interconnects          ; 3 / 2,100 ( < 1 % )    ;
+; C4 interconnects           ; 103 / 36,000 ( < 1 % ) ;
+; Direct links               ; 18 / 54,004 ( < 1 % )  ;
+; Global clocks              ; 2 / 16 ( 13 % )        ;
+; Local interconnects        ; 39 / 18,752 ( < 1 % )  ;
+; R24 interconnects          ; 9 / 1,900 ( < 1 % )    ;
+; R4 interconnects           ; 101 / 46,920 ( < 1 % ) ;
++----------------------------+------------------------+
 
 
-+--------------------------------------------------------------------------+
-; LAB Logic Elements                                                       ;
-+--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 8.00) ; Number of LABs  (Total = 2) ;
-+--------------------------------------------+-----------------------------+
-; 1                                          ; 1                           ;
-; 2                                          ; 0                           ;
-; 3                                          ; 0                           ;
-; 4                                          ; 0                           ;
-; 5                                          ; 0                           ;
-; 6                                          ; 0                           ;
-; 7                                          ; 0                           ;
-; 8                                          ; 0                           ;
-; 9                                          ; 0                           ;
-; 10                                         ; 0                           ;
-; 11                                         ; 0                           ;
-; 12                                         ; 0                           ;
-; 13                                         ; 0                           ;
-; 14                                         ; 0                           ;
-; 15                                         ; 1                           ;
-; 16                                         ; 0                           ;
-+--------------------------------------------+-----------------------------+
++---------------------------------------------------------------------------+
+; LAB Logic Elements                                                        ;
++---------------------------------------------+-----------------------------+
+; Number of Logic Elements  (Average = 12.67) ; Number of LABs  (Total = 6) ;
++---------------------------------------------+-----------------------------+
+; 1                                           ; 0                           ;
+; 2                                           ; 0                           ;
+; 3                                           ; 0                           ;
+; 4                                           ; 1                           ;
+; 5                                           ; 0                           ;
+; 6                                           ; 0                           ;
+; 7                                           ; 0                           ;
+; 8                                           ; 0                           ;
+; 9                                           ; 0                           ;
+; 10                                          ; 1                           ;
+; 11                                          ; 0                           ;
+; 12                                          ; 0                           ;
+; 13                                          ; 0                           ;
+; 14                                          ; 0                           ;
+; 15                                          ; 2                           ;
+; 16                                          ; 2                           ;
++---------------------------------------------+-----------------------------+
 
 
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 1.50) ; Number of LABs  (Total = 2) ;
+; LAB-wide Signals  (Average = 1.67) ; Number of LABs  (Total = 6) ;
 +------------------------------------+-----------------------------+
-; 1 Clock                            ; 2                           ;
-; 1 Clock enable                     ; 1                           ;
+; 1 Clock                            ; 4                           ;
+; 1 Clock enable                     ; 3                           ;
+; 1 Sync. clear                      ; 1                           ;
+; 2 Clocks                           ; 2                           ;
 +------------------------------------+-----------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 14.00) ; Number of LABs  (Total = 2) ;
+; Number of Signals Sourced  (Average = 18.67) ; Number of LABs  (Total = 6) ;
++----------------------------------------------+-----------------------------+
+; 0                                            ; 0                           ;
+; 1                                            ; 0                           ;
+; 2                                            ; 0                           ;
+; 3                                            ; 0                           ;
+; 4                                            ; 0                           ;
+; 5                                            ; 0                           ;
+; 6                                            ; 1                           ;
+; 7                                            ; 0                           ;
+; 8                                            ; 1                           ;
+; 9                                            ; 0                           ;
+; 10                                           ; 0                           ;
+; 11                                           ; 0                           ;
+; 12                                           ; 0                           ;
+; 13                                           ; 0                           ;
+; 14                                           ; 0                           ;
+; 15                                           ; 0                           ;
+; 16                                           ; 0                           ;
+; 17                                           ; 1                           ;
+; 18                                           ; 0                           ;
+; 19                                           ; 0                           ;
+; 20                                           ; 1                           ;
+; 21                                           ; 0                           ;
+; 22                                           ; 0                           ;
+; 23                                           ; 0                           ;
+; 24                                           ; 0                           ;
+; 25                                           ; 0                           ;
+; 26                                           ; 0                           ;
+; 27                                           ; 0                           ;
+; 28                                           ; 0                           ;
+; 29                                           ; 0                           ;
+; 30                                           ; 1                           ;
+; 31                                           ; 1                           ;
++----------------------------------------------+-----------------------------+
+
+
++--------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                        ;
++--------------------------------------------------+-----------------------------+
+; Number of Signals Sourced Out  (Average = 10.67) ; Number of LABs  (Total = 6) ;
++--------------------------------------------------+-----------------------------+
+; 0                                                ; 0                           ;
+; 1                                                ; 1                           ;
+; 2                                                ; 0                           ;
+; 3                                                ; 0                           ;
+; 4                                                ; 0                           ;
+; 5                                                ; 0                           ;
+; 6                                                ; 0                           ;
+; 7                                                ; 0                           ;
+; 8                                                ; 2                           ;
+; 9                                                ; 0                           ;
+; 10                                               ; 0                           ;
+; 11                                               ; 0                           ;
+; 12                                               ; 0                           ;
+; 13                                               ; 1                           ;
+; 14                                               ; 1                           ;
+; 15                                               ; 0                           ;
+; 16                                               ; 0                           ;
+; 17                                               ; 0                           ;
+; 18                                               ; 0                           ;
+; 19                                               ; 0                           ;
+; 20                                               ; 1                           ;
++--------------------------------------------------+-----------------------------+
+
+
++----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                        ;
++----------------------------------------------+-----------------------------+
+; Number of Distinct Inputs  (Average = 12.33) ; Number of LABs  (Total = 6) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
 ; 1                                            ; 0                           ;
 ; 2                                            ; 1                           ;
-; 3                                            ; 0                           ;
-; 4                                            ; 0                           ;
+; 3                                            ; 1                           ;
+; 4                                            ; 1                           ;
 ; 5                                            ; 0                           ;
 ; 6                                            ; 0                           ;
 ; 7                                            ; 0                           ;
@@ -981,55 +1091,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 11                                           ; 0                           ;
 ; 12                                           ; 0                           ;
 ; 13                                           ; 0                           ;
-; 14                                           ; 0                           ;
+; 14                                           ; 1                           ;
 ; 15                                           ; 0                           ;
 ; 16                                           ; 0                           ;
 ; 17                                           ; 0                           ;
 ; 18                                           ; 0                           ;
 ; 19                                           ; 0                           ;
-; 20                                           ; 0                           ;
+; 20                                           ; 1                           ;
 ; 21                                           ; 0                           ;
 ; 22                                           ; 0                           ;
 ; 23                                           ; 0                           ;
 ; 24                                           ; 0                           ;
 ; 25                                           ; 0                           ;
-; 26                                           ; 1                           ;
+; 26                                           ; 0                           ;
+; 27                                           ; 0                           ;
+; 28                                           ; 0                           ;
+; 29                                           ; 0                           ;
+; 30                                           ; 0                           ;
+; 31                                           ; 1                           ;
 +----------------------------------------------+-----------------------------+
-
-
-+-------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                       ;
-+-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 7.50) ; Number of LABs  (Total = 2) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 0                           ;
-; 1                                               ; 1                           ;
-; 2                                               ; 0                           ;
-; 3                                               ; 0                           ;
-; 4                                               ; 0                           ;
-; 5                                               ; 0                           ;
-; 6                                               ; 0                           ;
-; 7                                               ; 0                           ;
-; 8                                               ; 0                           ;
-; 9                                               ; 0                           ;
-; 10                                              ; 0                           ;
-; 11                                              ; 0                           ;
-; 12                                              ; 0                           ;
-; 13                                              ; 0                           ;
-; 14                                              ; 1                           ;
-+-------------------------------------------------+-----------------------------+
-
-
-+---------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                       ;
-+---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 3.00) ; Number of LABs  (Total = 2) ;
-+---------------------------------------------+-----------------------------+
-; 0                                           ; 0                           ;
-; 1                                           ; 0                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 2                           ;
-+---------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -1074,7 +1154,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Feb 14 21:35:59 2019
+    Info: Processing started: Fri Feb 15 01:17:47 2019
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off FPGA_Main -c FPGA_Main
 Info: Selected device EP2C20F484C7 for design "FPGA_Main"
 Info: Low junction temperature is 0 degrees C
@@ -1089,7 +1169,7 @@ Info: Fitter converted 3 user pins into dedicated programming pins
     Info: Pin ~ASDO~ is reserved at location C4
     Info: Pin ~nCSO~ is reserved at location C3
     Info: Pin ~LVDS91p/nCEO~ is reserved at location W20
-Critical Warning: No exact pin location assignment(s) for 17 pins of 17 total pins
+Critical Warning: No exact pin location assignment(s) for 18 pins of 18 total pins
     Info: Pin mbed_data[0] not assigned to an exact location on the device
     Info: Pin mbed_data[1] not assigned to an exact location on the device
     Info: Pin mbed_data[2] not assigned to an exact location on the device
@@ -1105,12 +1185,29 @@ Critical Warning: No exact pin location assignment(s) for 17 pins of 17 total pi
     Info: Pin pulse_count[2] not assigned to an exact location on the device
     Info: Pin pulse_count[3] not assigned to an exact location on the device
     Info: Pin output_ready not assigned to an exact location on the device
+    Info: Pin pulse not assigned to an exact location on the device
     Info: Pin mbed_pulse not assigned to an exact location on the device
     Info: Pin clk not assigned to an exact location on the device
 Info: Timing-driven compilation is using the Classic Timing Analyzer
 Info: Timing requirements not specified -- quality metrics such as performance and power consumption may be sacrificed to reduce compilation time.
 Info: Automatically promoted node clk (placed in PIN M1 (CLK2, LVDSCLK1p, Input))
     Info: Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
+    Info: Following destination nodes may be non-global or may not use global or regional clocks
+        Info: Destination node sample~reg0
+Info: Automatically promoted node sample~reg0 
+    Info: Automatically promoted destinations to use location or clock signal Global Clock
+    Info: Following destination nodes may be non-global or may not use global or regional clocks
+        Info: Destination node sample~reg0
+        Info: Destination node Servo_Driver:comb_4|pulse
+        Info: Destination node Servo_Driver:comb_4|counter[16]
+        Info: Destination node Servo_Driver:comb_4|counter[15]
+        Info: Destination node Servo_Driver:comb_4|counter[14]
+        Info: Destination node Servo_Driver:comb_4|counter[13]
+        Info: Destination node Servo_Driver:comb_4|counter[12]
+        Info: Destination node Servo_Driver:comb_4|counter[11]
+        Info: Destination node Servo_Driver:comb_4|counter[10]
+        Info: Destination node Servo_Driver:comb_4|counter[9]
+        Info: Non-global destination nodes limited to 10 nodes
 Info: Starting register packing
 Extra Info: Performing register packing on registers with non-logic cell location assignments
 Extra Info: Completed register packing on registers with non-logic cell location assignments
@@ -1121,7 +1218,7 @@ Extra Info: Finished moving registers into I/O cells, Multiplier Blocks, and RAM
 Info: Finished register packing
     Extra Info: No registers were packed into other blocks
 Info: Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info: Number of I/O pins in group: 16 (unused VREF, 3.3V VCCIO, 1 input, 15 output, 0 bidirectional)
+    Info: Number of I/O pins in group: 17 (unused VREF, 3.3V VCCIO, 1 input, 16 output, 0 bidirectional)
         Info: I/O standards used: 3.3-V LVTTL.
 Info: I/O bank details before I/O pin placement
     Info: Statistics of I/O banks
@@ -1139,22 +1236,36 @@ Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
 Info: Fitter placement was successful
 Info: Fitter placement operations ending: elapsed time is 00:00:00
-Info: Estimated most critical path is register to register delay of 2.465 ns
-    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LAB_X1_Y7; Fanout = 6; REG Node = 'pulse_count[3]~reg0'
-    Info: 2: + IC(0.560 ns) + CELL(0.178 ns) = 0.738 ns; Loc. = LAB_X1_Y7; Fanout = 2; COMB Node = 'LessThan0~0'
-    Info: 3: + IC(0.154 ns) + CELL(0.521 ns) = 1.413 ns; Loc. = LAB_X1_Y7; Fanout = 9; COMB Node = 'mbed_data[0]~0'
-    Info: 4: + IC(0.294 ns) + CELL(0.758 ns) = 2.465 ns; Loc. = LAB_X1_Y7; Fanout = 2; REG Node = 'mbed_data[0]~reg0'
-    Info: Total cell delay = 1.457 ns ( 59.11 % )
-    Info: Total interconnect delay = 1.008 ns ( 40.89 % )
+Info: Estimated most critical path is register to register delay of 3.900 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LAB_X44_Y22; Fanout = 1; REG Node = 'Servo_Driver:comb_4|pulse_length[2]'
+    Info: 2: + IC(0.560 ns) + CELL(0.495 ns) = 1.055 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~1'
+    Info: 3: + IC(0.000 ns) + CELL(0.080 ns) = 1.135 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~3'
+    Info: 4: + IC(0.000 ns) + CELL(0.080 ns) = 1.215 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~5'
+    Info: 5: + IC(0.000 ns) + CELL(0.080 ns) = 1.295 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~7'
+    Info: 6: + IC(0.000 ns) + CELL(0.080 ns) = 1.375 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~9'
+    Info: 7: + IC(0.000 ns) + CELL(0.080 ns) = 1.455 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~11'
+    Info: 8: + IC(0.000 ns) + CELL(0.080 ns) = 1.535 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~13'
+    Info: 9: + IC(0.000 ns) + CELL(0.080 ns) = 1.615 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~15'
+    Info: 10: + IC(0.000 ns) + CELL(0.080 ns) = 1.695 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~17'
+    Info: 11: + IC(0.000 ns) + CELL(0.080 ns) = 1.775 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~19'
+    Info: 12: + IC(0.000 ns) + CELL(0.080 ns) = 1.855 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~21'
+    Info: 13: + IC(0.000 ns) + CELL(0.080 ns) = 1.935 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~23'
+    Info: 14: + IC(0.000 ns) + CELL(0.080 ns) = 2.015 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~25'
+    Info: 15: + IC(0.000 ns) + CELL(0.080 ns) = 2.095 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~27'
+    Info: 16: + IC(0.000 ns) + CELL(0.458 ns) = 2.553 ns; Loc. = LAB_X44_Y22; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~28'
+    Info: 17: + IC(0.706 ns) + CELL(0.545 ns) = 3.804 ns; Loc. = LAB_X45_Y21; Fanout = 1; COMB Node = 'Servo_Driver:comb_4|LessThan0~30'
+    Info: 18: + IC(0.000 ns) + CELL(0.096 ns) = 3.900 ns; Loc. = LAB_X45_Y21; Fanout = 1; REG Node = 'Servo_Driver:comb_4|pulse'
+    Info: Total cell delay = 2.634 ns ( 67.54 % )
+    Info: Total interconnect delay = 1.266 ns ( 32.46 % )
 Info: Fitter routing operations beginning
 Info: Average interconnect usage is 0% of the available device resources
-    Info: Peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y0 to location X11_Y13
+    Info: Peak interconnect usage is 1% of the available device resources in the region that extends from location X38_Y14 to location X50_Y27
 Info: Fitter routing operations ending: elapsed time is 00:00:00
 Info: The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info: Optimizations that may affect the design's routability were skipped
     Info: Optimizations that may affect the design's timing were skipped
 Info: Started post-fitting delay annotation
-Warning: Found 15 output pins without output pin load capacitance assignment
+Warning: Found 16 output pins without output pin load capacitance assignment
     Info: Pin "mbed_data[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "mbed_data[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "mbed_data[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -1170,12 +1281,13 @@ Warning: Found 15 output pins without output pin load capacitance assignment
     Info: Pin "pulse_count[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "pulse_count[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "output_ready" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "pulse" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info: Delay annotation completed successfully
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info: Quartus II Fitter was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 278 megabytes
-    Info: Processing ended: Thu Feb 14 21:36:01 2019
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Processing ended: Fri Feb 15 01:17:50 2019
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
 
 

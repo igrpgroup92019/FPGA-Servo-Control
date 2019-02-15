@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Main
-Thu Feb 14 21:35:58 2019
+Fri Feb 15 01:17:46 2019
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -13,8 +13,11 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for Inferred Entity Instance: Servo_Driver:comb_4|lpm_mult:Mult0
+ 11. lpm_mult Parameter Settings by Entity Instance
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -40,16 +43,16 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +------------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Feb 14 21:35:58 2019        ;
+; Analysis & Synthesis Status        ; Successful - Fri Feb 15 01:17:46 2019        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; FPGA_Main                                    ;
 ; Top-level Entity Name              ; FPGA_Main                                    ;
 ; Family                             ; Cyclone II                                   ;
-; Total logic elements               ; 16                                           ;
-;     Total combinational functions  ; 7                                            ;
-;     Dedicated logic registers      ; 14                                           ;
-; Total registers                    ; 14                                           ;
-; Total pins                         ; 17                                           ;
+; Total logic elements               ; 86                                           ;
+;     Total combinational functions  ; 75                                           ;
+;     Dedicated logic registers      ; 50                                           ;
+; Total registers                    ; 50                                           ;
+; Total pins                         ; 18                                           ;
 ; Total virtual pins                 ; 0                                            ;
 ; Total memory bits                  ; 0                                            ;
 ; Embedded Multiplier 9-bit elements ; 0                                            ;
@@ -147,52 +150,75 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                           ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                       ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+
-; FPGA_Main.v                      ; yes             ; User Verilog HDL File  ; E:/My Stuff/University/Year 3/Robotics Project/GitHub Repos/FPGA-Servo-Control/Verilog/FPGA_Main.v ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                              ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+
+; FPGA_Main.v                      ; yes             ; User Verilog HDL File        ; E:/My Stuff/University/Year 3/Robotics Project/GitHub Repos/FPGA-Servo-Control/Verilog/FPGA_Main.v        ;
+; Servo_Driver.v                   ; yes             ; User Verilog HDL File        ; E:/My Stuff/University/Year 3/Robotics Project/GitHub Repos/FPGA-Servo-Control/Verilog/Servo_Driver.v     ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; e:/altera/91sp2/quartus/libraries/megafunctions/lpm_mult.tdf                                              ;
+; multcore.tdf                     ; yes             ; Megafunction                 ; e:/altera/91sp2/quartus/libraries/megafunctions/multcore.tdf                                              ;
+; mpar_add.tdf                     ; yes             ; Megafunction                 ; e:/altera/91sp2/quartus/libraries/megafunctions/mpar_add.tdf                                              ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; e:/altera/91sp2/quartus/libraries/megafunctions/lpm_add_sub.tdf                                           ;
+; db/add_sub_3ch.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/My Stuff/University/Year 3/Robotics Project/GitHub Repos/FPGA-Servo-Control/Verilog/db/add_sub_3ch.tdf ;
+; altshift.tdf                     ; yes             ; Megafunction                 ; e:/altera/91sp2/quartus/libraries/megafunctions/altshift.tdf                                              ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 16    ;
-;                                             ;       ;
-; Total combinational functions               ; 7     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 4     ;
-;     -- 3 input functions                    ; 2     ;
-;     -- <=2 input functions                  ; 1     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 7     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 14    ;
-;     -- Dedicated logic registers            ; 14    ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 17    ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 14    ;
-; Total fan-out                               ; 80    ;
-; Average fan-out                             ; 2.11  ;
-+---------------------------------------------+-------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 86          ;
+;                                             ;             ;
+; Total combinational functions               ; 75          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 11          ;
+;     -- 3 input functions                    ; 24          ;
+;     -- <=2 input functions                  ; 40          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 22          ;
+;     -- arithmetic mode                      ; 53          ;
+;                                             ;             ;
+; Total registers                             ; 50          ;
+;     -- Dedicated logic registers            ; 50          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 18          ;
+; Maximum fan-out node                        ; sample~reg0 ;
+; Maximum fan-out                             ; 44          ;
+; Total fan-out                               ; 343         ;
+; Average fan-out                             ; 2.40        ;
++---------------------------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |FPGA_Main                 ; 7 (7)             ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |FPGA_Main          ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                          ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Library Name ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |FPGA_Main                                     ; 75 (6)            ; 50 (14)      ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |FPGA_Main                                                                                                                       ; work         ;
+;    |Servo_Driver:comb_4|                       ; 69 (49)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_Main|Servo_Driver:comb_4                                                                                                   ;              ;
+;       |lpm_mult:Mult0|                         ; 20 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0                                                                                    ;              ;
+;          |multcore:mult_core|                  ; 20 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core                                                                 ;              ;
+;             |mpar_add:padder|                  ; 10 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                 ;              ;
+;                |lpm_add_sub:adder[0]|          ; 10 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                            ;              ;
+;                   |add_sub_3ch:auto_generated| ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FPGA_Main|Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_3ch:auto_generated ;              ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++-------------------------------------------+----------------------------------------+
+; Register name                             ; Reason for Removal                     ;
++-------------------------------------------+----------------------------------------+
+; Servo_Driver:comb_4|pulse_length[0..1,17] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 3     ;                                        ;
++-------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -200,14 +226,69 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 14    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 50    ;
+; Number of registers using Synchronous Clear  ; 21    ;
+; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 13    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Servo_Driver:comb_4|lpm_mult:Mult0 ;
++------------------------------------------------+------------+-----------------------+
+; Parameter Name                                 ; Value      ; Type                  ;
++------------------------------------------------+------------+-----------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY            ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY          ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE          ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE        ;
+; LPM_WIDTHA                                     ; 8          ; Untyped               ;
+; LPM_WIDTHB                                     ; 8          ; Untyped               ;
+; LPM_WIDTHP                                     ; 16         ; Untyped               ;
+; LPM_WIDTHR                                     ; 16         ; Untyped               ;
+; LPM_WIDTHS                                     ; 1          ; Untyped               ;
+; LPM_REPRESENTATION                             ; UNSIGNED   ; Untyped               ;
+; LPM_PIPELINE                                   ; 0          ; Untyped               ;
+; LATENCY                                        ; 0          ; Untyped               ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped               ;
+; INPUT_B_IS_CONSTANT                            ; YES        ; Untyped               ;
+; USE_EAB                                        ; OFF        ; Untyped               ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped               ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped               ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped               ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K   ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped               ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped               ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped               ;
+; CBXI_PARAMETER                                 ; NOTHING    ; Untyped               ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped               ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped               ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped               ;
++------------------------------------------------+------------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                             ;
++---------------------------------------+------------------------------------+
+; Name                                  ; Value                              ;
++---------------------------------------+------------------------------------+
+; Number of entity instances            ; 1                                  ;
+; Entity Instance                       ; Servo_Driver:comb_4|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                  ;
+;     -- LPM_WIDTHB                     ; 8                                  ;
+;     -- LPM_WIDTHP                     ; 16                                 ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                           ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                 ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                ;
+;     -- USE_EAB                        ; OFF                                ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                               ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                 ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                 ;
++---------------------------------------+------------------------------------+
 
 
 +-------------------------------+
@@ -216,22 +297,47 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Feb 14 21:35:57 2019
+    Info: Processing started: Fri Feb 15 01:17:45 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Main -c FPGA_Main
 Info: Found 1 design units, including 1 entities, in source file fpga_main.v
     Info: Found entity 1: FPGA_Main
-Warning (10227): Verilog HDL Port Declaration warning at FPGA_Main.v(11): data type declaration for "mbed_data" declares packed dimensions but the port declaration declaration does not
+Info: Found 1 design units, including 1 entities, in source file servo_driver.v
+    Info: Found entity 1: Servo_Driver
+Warning (10227): Verilog HDL Port Declaration warning at FPGA_Main.v(12): data type declaration for "mbed_data" declares packed dimensions but the port declaration declaration does not
 Info (10499): HDL info at FPGA_Main.v(3): see declaration for object "mbed_data"
+Critical Warning (10846): Verilog HDL Instantiation warning at FPGA_Main.v(20): instance has no name
 Info: Elaborating entity "FPGA_Main" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at FPGA_Main.v(40): truncated value with size 32 to match size of target (4)
-Info: Implemented 33 device resources after synthesis - the final resource count might be different
+Warning (10230): Verilog HDL assignment warning at FPGA_Main.v(44): truncated value with size 32 to match size of target (4)
+Info: Elaborating entity "Servo_Driver" for hierarchy "Servo_Driver:comb_4"
+Warning (10230): Verilog HDL assignment warning at Servo_Driver.v(15): truncated value with size 32 to match size of target (18)
+Warning (10230): Verilog HDL assignment warning at Servo_Driver.v(22): truncated value with size 32 to match size of target (20)
+Info: Inferred 1 megafunctions from design logic
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Servo_Driver:comb_4|Mult0"
+Info: Elaborated megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0"
+Info: Instantiated megafunction "Servo_Driver:comb_4|lpm_mult:Mult0" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "8"
+    Info: Parameter "LPM_WIDTHB" = "8"
+    Info: Parameter "LPM_WIDTHP" = "16"
+    Info: Parameter "LPM_WIDTHR" = "16"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info: Parameter "MAXIMIZE_SPEED" = "5"
+Info: Elaborated megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_3ch.tdf
+    Info: Found entity 1: add_sub_3ch
+Info: Elaborated megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "Servo_Driver:comb_4|lpm_mult:Mult0"
+Info: Implemented 105 device resources after synthesis - the final resource count might be different
     Info: Implemented 2 input pins
-    Info: Implemented 15 output pins
-    Info: Implemented 16 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 244 megabytes
-    Info: Processing ended: Thu Feb 14 21:35:58 2019
+    Info: Implemented 16 output pins
+    Info: Implemented 87 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 246 megabytes
+    Info: Processing ended: Fri Feb 15 01:17:46 2019
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 
