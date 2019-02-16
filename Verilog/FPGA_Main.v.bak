@@ -1,48 +1,40 @@
-module FPGA_Main(clk, mbed_pulse, mbed_data, sample, pulse_count, output_ready, pulse);
-input clk, mbed_pulse;
-output mbed_data;
-
-// debug print
-output sample;
-output [3:0] pulse_count;
-output output_ready;
-output pulse;
+module FPGA_Main(clk, set_bit, input_bit, turntable_pulse, launch_pulse, mbed_data);
+input clk, set_bit, input_bit;
+output turntable_pulse, launch_pulse;
+output [10:0] mbed_data;
 
 // pulse date collection
-reg [8:0] mbed_data;
-reg sample;
-reg [3:0] pulse_count;
+wire set_bit, input_bit, ready;
+wire [10:0] mbed_data; // 1 for activation, 1 for mode select (maintenance/running), 1 for servo, 8 bits -> int
+Instruction_Set(set_bit, input_bit, mbed_data, ready);
 
-// for sending data to servos
-assign output_ready = !sample;
-
-// servos
-Servo_Driver(clk, 1, output_ready, mbed_data[7:0], pulse);
+// servo drivers
+reg enableTurntable, enableLauncher;
+wire set_rotation;
+Servo_Driver turntable(clk, enableTurntable, set_rotation, mbed_data[7:0], turntable_pulse);
+Servo_Driver launcher(clk, enableLauncher, set_rotation, mbed_data[7:0], launch_pulse);
 
 always @ (posedge clk)
 begin
-	// starts the sampling process if there a data pluse and it ist't started already
-	if (!sample)
+	if (ready & mbed_data[10]) // true if there's an active instruction present
 	begin
-		sample <= mbed_pulse;
+		if (mbed_data[9]) // maintenance
+		begin
+			enableTurntable <= mbed_data[8];
+			enableLauncher <= !mbed_data[8];
+		end
+		
+		// main operation
+		else
+		begin
+			
+		end
 	end
+	
 	else
 	begin
-		// this ends the sampling process once all the bits have been collected
-		if (pulse_count > 8)
-		begin
-			// resets sampling registers
-			sample <= 0;
-			pulse_count <= 0;
-		end
-		// collects data
-		else 
-		begin
-			// shifts all the bits along the mbed data register and adds the newest bit at the end
-			mbed_data <= {mbed_data[7:0],mbed_pulse};
-			// increments the bit counter
-			pulse_count <= pulse_count + 1;
-		end
+		enableTurntable <= 0;
+		enableLauncher <= 0;
 	end
 end
 

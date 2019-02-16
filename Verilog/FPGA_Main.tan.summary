@@ -5,19 +5,19 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 4.645 ns
-From           : mbed_pulse
-To             : mbed_data[0]~reg0
+Actual Time    : 4.511 ns
+From           : input_bit
+To             : Instruction_Set:comb_3|mbed_data[0]
 From Clock     : --
-To Clock       : clk
+To Clock       : set_bit
 Failed Paths   : 0
 
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 11.218 ns
-From           : mbed_data[7]~reg0
-To             : mbed_data[7]
+Actual Time    : 9.005 ns
+From           : Servo_Driver:launcher|pulse
+To             : launch_pulse
 From Clock     : clk
 To Clock       : --
 Failed Paths   : 0
@@ -25,32 +25,32 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -3.756 ns
-From           : mbed_pulse
-To             : sample~reg0
+Actual Time    : -4.263 ns
+From           : input_bit
+To             : Instruction_Set:comb_3|mbed_data[0]
 From Clock     : --
-To Clock       : clk
+To Clock       : set_bit
 Failed Paths   : 0
 
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 53.50 MHz ( period = 18.692 ns )
-From           : Servo_Driver:comb_4|pulse_length[2]
-To             : Servo_Driver:comb_4|pulse
+Actual Time    : 228.47 MHz ( period = 4.377 ns )
+From           : Servo_Driver:launcher|pulse_length[4]
+To             : Servo_Driver:turntable|pulse
 From Clock     : clk
 To Clock       : clk
 Failed Paths   : 0
 
-Type           : Clock Hold: 'clk'
-Slack          : Not operational: Clock Skew > Data Delay
+Type           : Clock Setup: 'set_bit'
+Slack          : N/A
 Required Time  : None
-Actual Time    : N/A
-From           : mbed_data[1]~reg0
-To             : Servo_Driver:comb_4|pulse_length[3]
-From Clock     : clk
-To Clock       : clk
-Failed Paths   : 85
+Actual Time    : 291.04 MHz ( period = 3.436 ns )
+From           : Instruction_Set:comb_3|pulse_count[0]
+To             : Instruction_Set:comb_3|mbed_data[0]
+From Clock     : set_bit
+To Clock       : set_bit
+Failed Paths   : 0
 
 Type           : Total number of failed paths
 Slack          : 
@@ -60,7 +60,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 85
+Failed Paths   : 0
 
 --------------------------------------------------------------------------------------
 
