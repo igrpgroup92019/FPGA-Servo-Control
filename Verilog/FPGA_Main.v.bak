@@ -1,18 +1,20 @@
-module FPGA_Main(clk, set_bit, input_bit, turntable_pulse, launch_pulse, mbed_data);
-input clk, set_bit, input_bit;
+module FPGA_Main(clk, set_bit, input_bit, reset, turntable_pulse, launch_pulse, mbed_data, enableTurntable, enableLauncher, ready); // mbed last one
+input clk, set_bit, input_bit, reset;
 output turntable_pulse, launch_pulse;
 output [10:0] mbed_data;
 
+output enableTurntable, enableLauncher, ready;
+
 // pulse date collection
-wire set_bit, input_bit, ready;
+wire clk, set_bit, input_bit, ready;
 wire [10:0] mbed_data; // 1 for activation, 1 for mode select (maintenance/running), 1 for servo, 8 bits -> int
-Instruction_Set(set_bit, input_bit, mbed_data, ready);
+Instruction_Set(reset, set_bit, input_bit, mbed_data, ready);
 
 // servo drivers
 reg enableTurntable, enableLauncher;
-wire set_rotation;
-Servo_Driver turntable(clk, enableTurntable, set_rotation, mbed_data[7:0], turntable_pulse);
-Servo_Driver launcher(clk, enableLauncher, set_rotation, mbed_data[7:0], launch_pulse);
+//wire set_rotation;
+Servo_Driver turntable(clk, enableTurntable, ready, mbed_data[7:0], turntable_pulse);
+Servo_Driver launcher(clk, enableLauncher, ready, mbed_data[7:0], launch_pulse);
 
 always @ (posedge clk)
 begin

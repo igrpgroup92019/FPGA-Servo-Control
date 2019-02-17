@@ -6,13 +6,15 @@ output pulse;
 
 reg [19:0] counter;
 reg [7:0] rotation_value;
-reg [17:0] pulse_length;
+reg [16:0] pulse_length;
 reg pulse;
 
 always @ (posedge set_rotation)
 begin
 	// 50000 = 1ms, 255*196 ~= 50000
-	pulse_length <= (input_rotation*196) + 50000;
+	//pulse_length <= (input_rotation*196) + 50000;
+	//pulse_length <= (input_rotation*400) + 30000;
+	pulse_length <= (input_rotation*350) + 30000;
 end
 
 always @ (posedge clk)
@@ -20,11 +22,11 @@ begin
 	if (enable)
 	begin
 		counter <= counter + 1;
-		// set pulse to 1
-		if (counter < pulse_length) pulse <= 0;
-		// set pulse to 0
+		if (counter > 1000000) counter <= 0;
+		else if (counter > pulse_length) pulse <= 0;
 		else pulse <= 1;
 	end
+	
 	else
 	begin
 		pulse <= 0;

@@ -1,7 +1,8 @@
 |FPGA_Main
-clk => clk.IN4
+clk => clk.IN2
 set_bit => set_bit.IN1
 input_bit => input_bit.IN1
+reset => reset.IN1
 turntable_pulse <= Servo_Driver:turntable.port4
 launch_pulse <= Servo_Driver:launcher.port4
 mbed_data[0] <= mbed_data[0].DB_MAX_OUTPUT_PORT_TYPE
@@ -12,12 +13,31 @@ mbed_data[4] <= mbed_data[4].DB_MAX_OUTPUT_PORT_TYPE
 mbed_data[5] <= mbed_data[5].DB_MAX_OUTPUT_PORT_TYPE
 mbed_data[6] <= mbed_data[6].DB_MAX_OUTPUT_PORT_TYPE
 mbed_data[7] <= mbed_data[7].DB_MAX_OUTPUT_PORT_TYPE
-mbed_data[8] <= Instruction_Set:comb_3.port2
-mbed_data[9] <= Instruction_Set:comb_3.port2
-mbed_data[10] <= Instruction_Set:comb_3.port2
+mbed_data[8] <= Instruction_Set:comb_3.port3
+mbed_data[9] <= Instruction_Set:comb_3.port3
+mbed_data[10] <= Instruction_Set:comb_3.port3
+enableTurntable <= enableTurntable.DB_MAX_OUTPUT_PORT_TYPE
+enableLauncher <= enableLauncher.DB_MAX_OUTPUT_PORT_TYPE
+ready <= ready.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |FPGA_Main|Instruction_Set:comb_3
+reset => sample.OUTPUTSELECT
+reset => pulse_count.OUTPUTSELECT
+reset => pulse_count.OUTPUTSELECT
+reset => pulse_count.OUTPUTSELECT
+reset => pulse_count.OUTPUTSELECT
+reset => mbed_data[0]~reg0.ENA
+reset => mbed_data[1]~reg0.ENA
+reset => mbed_data[2]~reg0.ENA
+reset => mbed_data[3]~reg0.ENA
+reset => mbed_data[4]~reg0.ENA
+reset => mbed_data[5]~reg0.ENA
+reset => mbed_data[6]~reg0.ENA
+reset => mbed_data[7]~reg0.ENA
+reset => mbed_data[8]~reg0.ENA
+reset => mbed_data[9]~reg0.ENA
+reset => mbed_data[10]~reg0.ENA
 set_bit => mbed_data[0]~reg0.CLK
 set_bit => mbed_data[1]~reg0.CLK
 set_bit => mbed_data[2]~reg0.CLK
@@ -109,15 +129,14 @@ set_rotation => pulse_length[13].CLK
 set_rotation => pulse_length[14].CLK
 set_rotation => pulse_length[15].CLK
 set_rotation => pulse_length[16].CLK
-set_rotation => pulse_length[17].CLK
-input_rotation[0] => Mult0.IN15
-input_rotation[1] => Mult0.IN14
-input_rotation[2] => Mult0.IN13
-input_rotation[3] => Mult0.IN12
-input_rotation[4] => Mult0.IN11
-input_rotation[5] => Mult0.IN10
-input_rotation[6] => Mult0.IN9
-input_rotation[7] => Mult0.IN8
+input_rotation[0] => Mult0.IN16
+input_rotation[1] => Mult0.IN15
+input_rotation[2] => Mult0.IN14
+input_rotation[3] => Mult0.IN13
+input_rotation[4] => Mult0.IN12
+input_rotation[5] => Mult0.IN11
+input_rotation[6] => Mult0.IN10
+input_rotation[7] => Mult0.IN9
 pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -181,15 +200,14 @@ set_rotation => pulse_length[13].CLK
 set_rotation => pulse_length[14].CLK
 set_rotation => pulse_length[15].CLK
 set_rotation => pulse_length[16].CLK
-set_rotation => pulse_length[17].CLK
-input_rotation[0] => Mult0.IN15
-input_rotation[1] => Mult0.IN14
-input_rotation[2] => Mult0.IN13
-input_rotation[3] => Mult0.IN12
-input_rotation[4] => Mult0.IN11
-input_rotation[5] => Mult0.IN10
-input_rotation[6] => Mult0.IN9
-input_rotation[7] => Mult0.IN8
+input_rotation[0] => Mult0.IN16
+input_rotation[1] => Mult0.IN15
+input_rotation[2] => Mult0.IN14
+input_rotation[3] => Mult0.IN13
+input_rotation[4] => Mult0.IN12
+input_rotation[5] => Mult0.IN11
+input_rotation[6] => Mult0.IN10
+input_rotation[7] => Mult0.IN9
 pulse <= pulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

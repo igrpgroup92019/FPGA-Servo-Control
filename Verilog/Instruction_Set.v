@@ -1,5 +1,5 @@
-module Instruction_Set(set_bit, input_bit, mbed_data, ready);
-input set_bit, input_bit;
+module Instruction_Set(reset, set_bit, input_bit, mbed_data, ready);
+input reset, set_bit, input_bit;
 output [10:0] mbed_data;
 output ready;
 
@@ -13,8 +13,14 @@ assign ready = !sample;
 
 always @ (posedge set_bit)
 begin
+	// reset
+	if (reset) 
+	begin
+		sample <= 0;
+		pulse_count <= 0;
+	end
 	// starts the sampling process if there a data pluse and it ist't started already
-	if (!sample)
+	else if (!sample)
 	begin
 		sample <= 1;
 	end
