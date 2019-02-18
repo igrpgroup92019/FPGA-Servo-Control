@@ -1,0 +1,11 @@
+1 110 1000 0000
+13 inputs to complete
+
+0 nnnn nnnn
+
+1 A98
+1 00X NNNN NNNN - clear
+1 01E NNNN NNNN - set position of end (E)
+
+1 10X NNNN NNNN - go to position of end (E)
+1 11X NNNN NNNN - select servo to rotate (X)

@@ -1030,42 +1030,6 @@ data0
 
 # end
 # entity
-FPGA_Main
-# storage
-db|FPGA_Main.(0).cnf
-db|FPGA_Main.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-fpga_main.v
-891cdf6172444ea5292d8cf7fff72bca
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 Instruction_Set
 # storage
 db|FPGA_Main.(8).cnf
@@ -2605,6 +2569,42 @@ datab7
 datab3
 -1
 2
+}
+# macro_sequence
+
+# end
+# entity
+FPGA_Main
+# storage
+db|FPGA_Main.(0).cnf
+db|FPGA_Main.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+fpga_main.v
+4e1ffaf1287b664f12ee6312f9e92912
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
 }
 # macro_sequence
 

@@ -2,14 +2,16 @@ int SET_BIT = 0;
 int INPUT_BIT = 1;
 int RESET = 2;
 
-int instruction_one[11] = {1,1,0,1,0,0,0,0,0,0,0};
-int delayMillisecStep = 1;
+//int delayMillisecStep = 1;
 int delayMillisecTest = 3000;
 
 int instruction_a[11] =     {1,1,0,1,1,1,1,1,1,1,1};
 int instruction_b[11] =     {1,1,1,1,1,1,1,1,1,1,1};
 int instruction_c[11] =     {1,1,0,0,0,0,0,0,0,0,0};
 int instruction_d[11] =     {1,1,1,0,0,0,0,0,0,0,0};
+
+int instruction[11] =     {1,1,1,0,1,1,1,1,1,1,1};
+
 int instruction_blank[11] = {0,0,0,0,0,0,0,0,0,0,0};
 
 void setup()
@@ -25,11 +27,25 @@ void setup()
   delay(delayMillisecTest);
 
   // runs once
-  //RunInstruction(instruction_one); delay(delayMillisecTest);
   RunInstruction(instruction_a); delay(delayMillisecTest);
   RunInstruction(instruction_b); delay(delayMillisecTest);
+  
+  //RunInstruction(instruction); delay(delayMillisecTest);
+  
   RunInstruction(instruction_c); delay(delayMillisecTest);
   RunInstruction(instruction_d); delay(delayMillisecTest);
+
+  // launcher test
+  int instruction_r[11] = {0,1,0,0,1,0,0,0,0,0,0};
+  int instruction_e[11] = {0,1,1,1,1,0,0,0,0,0,0};
+  int instruction_g[11] = {1,1,0,0,0,0,0,0,0,0,0};
+  
+  //RunInstruction(instruction_r); delay(delayMillisecTest);
+  //RunInstruction(instruction_e); delay(delayMillisecTest);
+  
+  //RunInstruction(instruction_g); delay(delayMillisecTest);
+  
+  
   RunInstruction(instruction_blank);
 }
 

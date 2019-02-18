@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 5.883 ns
+Actual Time    : 6.411 ns
 From           : reset
-To             : Instruction_Set:comb_3|pulse_count[0]
+To             : Instruction_Set:comb_3|pulse_count[1]
 From Clock     : --
 To Clock       : set_bit
 Failed Paths   : 0
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 9.809 ns
-From           : Instruction_Set:comb_3|mbed_data[7]
-To             : mbed_data[7]
+Actual Time    : 9.514 ns
+From           : Instruction_Set:comb_3|mbed_data[3]
+To             : mbed_data[3]
 From Clock     : set_bit
 To Clock       : --
 Failed Paths   : 0
@@ -25,7 +25,7 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -3.590 ns
+Actual Time    : -3.617 ns
 From           : input_bit
 To             : Instruction_Set:comb_3|mbed_data[0]
 From Clock     : --
@@ -35,8 +35,8 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 161.58 MHz ( period = 6.189 ns )
-From           : Servo_Driver:launcher|counter[2]
+Actual Time    : 185.08 MHz ( period = 5.403 ns )
+From           : Servo_Driver:launcher|counter[0]
 To             : Servo_Driver:launcher|pulse
 From Clock     : clk
 To Clock       : clk
@@ -45,9 +45,9 @@ Failed Paths   : 0
 Type           : Clock Setup: 'set_bit'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 175.50 MHz ( period = 5.698 ns )
-From           : Instruction_Set:comb_3|mbed_data[2]
-To             : Servo_Driver:launcher|pulse_length[16]
+Actual Time    : 236.97 MHz ( period = 4.220 ns )
+From           : Instruction_Set:comb_3|pulse_count[0]
+To             : Instruction_Set:comb_3|mbed_data[0]
 From Clock     : set_bit
 To Clock       : set_bit
 Failed Paths   : 0
@@ -56,11 +56,11 @@ Type           : Clock Hold: 'set_bit'
 Slack          : Not operational: Clock Skew > Data Delay
 Required Time  : None
 Actual Time    : N/A
-From           : Instruction_Set:comb_3|mbed_data[3]
-To             : Servo_Driver:launcher|pulse_length[6]
+From           : Instruction_Set:comb_3|mbed_data[0]
+To             : Servo_Driver:turntable|pulse_length[3]
 From Clock     : set_bit
 To Clock       : set_bit
-Failed Paths   : 74
+Failed Paths   : 79
 
 Type           : Total number of failed paths
 Slack          : 
@@ -70,7 +70,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 74
+Failed Paths   : 79
 
 --------------------------------------------------------------------------------------
 
