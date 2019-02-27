@@ -28,12 +28,12 @@ void setup()
 
   // runs once
   RunInstruction(instruction_a); delay(delayMillisecTest);
-  RunInstruction(instruction_b); delay(delayMillisecTest);
+  //RunInstruction(instruction_b); delay(delayMillisecTest);
   
   //RunInstruction(instruction); delay(delayMillisecTest);
   
   RunInstruction(instruction_c); delay(delayMillisecTest);
-  RunInstruction(instruction_d); delay(delayMillisecTest);
+  //RunInstruction(instruction_d); delay(delayMillisecTest);
 
   // launcher test
   int instruction_r[11] = {0,1,0,0,1,0,0,0,0,0,0};

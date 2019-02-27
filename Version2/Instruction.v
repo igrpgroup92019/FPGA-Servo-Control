@@ -9,28 +9,37 @@ OUTPUTS:
 	full - high when there is a complete instruction
 */
 
-// TODO: if detect posedge (clear) begin instrRegister <= 0; AND add clear command to this module from the non-default states
-
-input set_bit, confirm_bit, enable;
-output[10:0] instruction;
+input set_bit, confirm_bit, enable, clear;
+output[9:0] instruction;
 output full;
 
-reg [10:0] instruction;
+reg [9:0] instruction;
 reg full;
 
 reg [3:0] counter; //counter that counts to 11, number of bits in instruction
 
+// Adds instruction bit to register
 always @ (posedge confirm_bit & enable)
 begin
-	if (counter == 0) full <= 0;
-
-	instruction <= {instruction[9:0], set_bit};
-	
-	counter <= counter + 1;
-	if (counter > 11) 
+	if (clear)
 	begin
+		instruction <= 0;
 		counter <= 0;
-		full <= 1;
+		full <= 0;
+	end
+	
+	else
+	begin
+		if (counter == 0) full <= 0;
+
+		instruction <= {instruction[8:0], set_bit};
+		
+		counter <= counter + 1;
+		if (counter > 10) 
+		begin
+			counter <= 0;
+			full <= 1;
+		end
 	end
 end
 
