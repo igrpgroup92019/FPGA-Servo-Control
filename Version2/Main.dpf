@@ -2,6 +2,42 @@
 
 <pin_planner>
 	<pin_info>
+		<pin name="servoInstr[9]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[8]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[7]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[6]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[5]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[4]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[3]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[2]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[1]" source="Pin Planner" >
+		</pin>
+		<pin name="servoInstr[0]" source="Pin Planner" >
+		</pin>
+		<pin name="waiting" source="Pin Planner" >
+		</pin>
+		<pin name="servo_track" source="Pin Planner" >
+		</pin>
+		<pin name="servo_turntable" source="Pin Planner" >
+		</pin>
+		<pin name="mbedCommand" source="Pin Planner" >
+		</pin>
+		<pin name="colourCorrect" source="Pin Planner" >
+		</pin>
+		<pin name="extended" source="Pin Planner" >
+		</pin>
+		<pin name="retracted" source="Pin Planner" >
+		</pin>
+		<pin name="turntable_enable" source="Pin Planner" >
+		</pin>
 	</pin_info>
 	<buses>
 	</buses>

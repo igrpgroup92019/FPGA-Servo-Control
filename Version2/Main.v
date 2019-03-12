@@ -1,142 +1,126 @@
-module Main(clk, mbedCommand, confirm, colourCorrect, waiting, reset, servo_turntable, servo_track, retracted, extended, servoInstr);
+module Main
+(
+	input	clk, command, confirm, reset, colour, instruction_ready,
+	output turntable_out, track_out, sync,
+	output wire[9:0] servo_instr
+);
+	
 /*
 INPUTS:
 	clk - clock
-	mbedCommand - current MBED bit to accept
-	confirm - confirm bit, accept this bit from MBED
-	colourCorrect - 1 from MBED if correct color is in front of sensor
-	reset - go to default state
-	retracted - the retracted postion switch
-	extended - the extended postion switch
+	confirm - confirming current bit, comes from MBED
+	reset - self-explanatory, resets to state 0, stops whatever is going on
+	sync - feedback to MBED
+	color - checks whether the right color is in front of the sensor, stops turntable
+	instruction_ready - checks whether the FPGA is ready to receive another instruction
 OUTPUTS:
-	waiting - if 1, accept command, else do not accept
-	servo_turntable - output for servo 1
-	servo_track - output for servo 2
-	servoInstr; for displaying on red LEDs
-*/
-
-input clk, mbedCommand, confirm, colourCorrect, reset, retracted, extended;
-output waiting, servo_turntable, servo_track;
-output [9:0] servoInstr; // for displaying on red LEDs
-
-//Helper definitions
-parameter size = 4; //size of state register
-reg[size-1: 0] current_state;
-wire[size-1: 0] next_state; 
-reg turntable_enable, track_enable; //enable bits
-wire servo_track, servo_turntable; //outputs to servos
-
-wire [9:0] servoInstr; //the big instruction
-wire clearInstruction; // clears the instruction, from reset input and state machine
-wire waiting; // ready to accept new instruction
-reg taskFinished; // operation completed, used to reset instruction register
-reg getInstruction;
-
-reg [7:0] trackPosition;
-reg [7:0] turntablePosition;
-parameter trackForwards = 8'b11111111;
-parameter trackBackwards = 8'b00000000;
-parameter turntableOperateSpeed = 8'b11111111;
-
-assign clearInstruction = reset | taskFinished;
-assign waiting = !instructionReady;
-assign addBit = confirm | taskFinished;
-
-//State definitions
-parameter default_state = 2'b00;
-parameter turntable_state = 2'b01;
-parameter push_track = 2'b10;
-parameter pull_track = 2'b11;
-
-//State Machine
-always @ (posedge clk)
-begin
-	case(current_state)
-		default_state: begin
-			taskFinished <= 0;
-			
-			if (instructionReady)
-			begin
-				getInstruction <= 0;
-				
-				// identifies the next state depending on the instruction
-				if (!servoInstr[9]) current_state <= turntable_state; // main operation, otherwise it's maintenance mode
-				else if (servoInstr[8]) current_state <= turntable_state; // activate turntable and set rotation to input
-				else if (servoInstr[7]) current_state <= push_track; // extend rack servo
-				else current_state <= push_track; // retract rack servo
-			end
-		
-			else
-			begin
-				getInstruction <= 1;
-				turntable_enable <= 0;
-				track_enable <= 0;
-			end
-		end
-		
-		turntable_state: begin
-			turntable_enable <= 1;
-			track_enable <= 0;
-			
-			if (!servoInstr[9]) // main operation
-			begin
-				turntablePosition <= turntablePosition;
-				if (colourCorrect) current_state <= push_track; //find color
-			end
-			else //maintance mode - info for Alex: correct = to stop if you wanna just spin the turntable, if you wanna find a color use correct normally
-			begin
-				turntablePosition <= servoInstr[7:0];
-				if (colourCorrect)
-				begin
-					current_state <= default_state;
-					taskFinished <= 1;
-				end
-			end
-		end
-		
-		push_track: begin
-			track_enable <= 1;
-			turntable_enable <= 0;
-			
-			trackPosition <= trackForwards;
-			if (extended)
-			begin
-				if (!servoInstr[9]) current_state <= pull_track;
-				else
-				begin
-					current_state <= default_state;
-					taskFinished <= 1;
-				end
-			end
-		end
-		
-		pull_track: begin
-			track_enable <= 1;
-			turntable_enable <= 0;
-			
-			trackPosition <= trackBackwards;
-			if (retracted)
-			begin
-				current_state <= default_state;
-				taskFinished <= 1;
-			end
-		end
-	endcase
+	servo_track, servo turntable - two helper wires, look to remove from outputs if allowed
+	servo_instr - full 10-bit instruction 
+TODO:
+	ensure good logic with clear/instruction_ready
 	
-	if (reset) current_state <= default_state;
-end
-
-Instruction instruction_set(getInstruction, mbedCommand, addBit, clearInstruction, servoInstr, instructionReady);
-/*
-	getInstruction - enable getting an instruction
-	mbedCommand - current bit that MBED wants to send (1 bit)
-	confirm - confirms that current bit is valid 
 */
-ServoDriver_50MHz_30ms turntable(clk, se1, turntablePosition, servo_turntable);
-ServoDriver_50MHz_30ms track(clk, se2, trackPosition, servo_track);
-
-assign se1 = !reset & turntable_enable;
-assign se2 = !reset & track_enable;
-
-
+	
+	// Declare states and state register:
+	reg [1:0] state;
+	parameter S0 = 0, S1 = 1, S2 = 2, S3 = 3;
+	
+	// Assignments:
+	reg task_finished = 0; // operation completed, used to reset instruction
+	//wire instruction_ready;
+	
+	reg track_enable = 0; //enable bit for the track
+	reg turntable_enable = 0; //enable bit for the turntable
+	reg[7:0] track_position;
+	reg[7:0] turntable_position;
+	
+	wire se1 = !reset & track_enable;
+	wire se2 = !reset & turntable_enable;
+	wire retracted = 0, extended = 0;
+	//wire servo_track, servo_turntable;
+	
+	
+	Instruction instr (command, confirm, sync, instruction_ready, reset, servo_instr);
+	ServoDriver_50MHz_30ms servo_turntable (clk, se1, turntable_position, track_out);
+	ServoDriver_50MHz_30ms servo_track (clk, se2, track_position, turntable_out);
+	
+	/*State machine blocks
+	always @ (state) begin
+		case (state)
+			//Listener state - 00
+			S0 : begin 
+					
+				end
+			//Turntable state - 01
+			S1 : begin 
+					turntable_position <= servo_instr;
+					if (colour == 1) begin 
+						
+					end
+				end
+			//Push track state - 10
+			S2 : begin 
+					
+				end
+			//Pull track state - 11
+			S3 : begin 
+					
+				end
+		endcase
+	end
+	*/
+	
+	// Determine the next state
+	always @ (posedge clk or posedge reset) begin
+		if (reset)
+			state <= S0;
+		else
+			case (state)
+				S0 : begin
+				
+					if(instruction_ready)
+						begin
+							task_finished <= 0;
+							if( (servo_instr[9] == 0) && (servo_instr[8] == 0) ) state <= 0; // 00 - stay in State 0
+							else if(servo_instr[8] == 1) state <= 1; // 01 - go to State 1
+							else if(servo_instr[9] == 1) state <= 2; // 10 - go to State 2
+							else state <= 3; // 11 - go to State 3
+						end
+						
+					end
+				S1 : begin
+					
+						if(task_finished | reset | colour) state <= 0; //go to state 0 if colour is found
+						//until color is found, instruction_ready = 0 ?
+						track_enable <= 0;
+						turntable_enable <= 1;
+						
+						turntable_position <= servo_instr[7:0];
+					
+					end
+				S2 : begin
+					
+						if((task_finished | reset) & !extended) state <= 0;
+						//incorporate instruction_ready
+						track_enable <= 1;
+						turntable_enable <= 0;
+						
+						track_position <= 8'b11111111;
+						task_finished <= 1;
+					
+					end
+				S3 : begin
+					
+						if((task_finished | reset) & !retracted) state <= 0;
+						//incorporate instruction_ready
+						track_enable <= 1;
+						turntable_enable <= 0;
+			
+						track_position <= 8'b00000000;
+						task_finished <= 1;
+					
+					end
+			endcase
+	end
+	
 endmodule

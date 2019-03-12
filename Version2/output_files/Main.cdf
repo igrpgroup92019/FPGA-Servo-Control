@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("D:/RoboProj/output_files/") File("Main.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C20F484) Path("D:/SourceTree Repos/FPGA/Version2/output_files/") File("Main.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
