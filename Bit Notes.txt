@@ -9,3 +9,5 @@
 
 1 10X NNNN NNNN - go to position of end (E)
 1 11X NNNN NNNN - select servo to rotate (X)
+
+-- needs to be redone
