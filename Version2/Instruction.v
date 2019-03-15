@@ -39,7 +39,8 @@ if(data_ready == 1 & confirm_bit == 1) begin
 					counter <= counter + 1; // increment counter
 				end
 		
-				else begin
+				else begin //if counter has reached 10, zero it to begin new instruction
+					
 					counter <= 0;
 					//instruction <= instruction_helper; //to have the old instruction replace the new one in full, evading any possible transition errors
 					full <= 1;
@@ -63,7 +64,7 @@ if(data_ready == 1 & confirm_bit == 1) begin
 	end
 	
 	// if data_ready == 0
-	else if (confirm_bit == 0) data_ready <= 1;
+	else if (confirm_bit == 0 && counter < 10) data_ready <= 1;
 	
 end
 

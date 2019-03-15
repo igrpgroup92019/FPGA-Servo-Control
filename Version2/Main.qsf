@@ -51,7 +51,7 @@ set_global_assignment -name VERILOG_FILE Main.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_location_assignment PIN_L1 -to clk
+set_location_assignment PIN_B12 -to clk
 set_global_assignment -name VERILOG_FILE ServoDriver_50MHz_30ms.v
 set_global_assignment -name VERILOG_FILE Instruction.v
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
@@ -82,16 +82,28 @@ set_location_assignment PIN_L18 -to turntable_out
 set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING OFF
 set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT EXTRA
 set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE SPEED
-set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
 set_global_assignment -name SAFE_STATE_MACHINE ON
 set_global_assignment -name ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION ON
 set_location_assignment PIN_P17 -to data_ready
 set_location_assignment PIN_U22 -to data_ready_LED
 set_location_assignment PIN_U21 -to reset_LED
 set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
-set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
 set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION ON
 set_global_assignment -name VERILOG_FILE Instruction2.v
 set_location_assignment PIN_V22 -to instruction_ready
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name CDF_FILE output_files/Chain3.cdf
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name ENABLE_DRC_SETTINGS ON
+set_global_assignment -name AUTO_PACKED_REGISTERS_STRATIXII AUTO
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name MUX_RESTRUCTURE AUTO
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP OFF
+set_instance_assignment -name GLOBAL_SIGNAL "GLOBAL CLOCK" -to clk
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

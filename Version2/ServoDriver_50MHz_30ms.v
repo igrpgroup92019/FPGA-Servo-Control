@@ -18,19 +18,21 @@ reg [20:0] fullPulse_Count; // 20ms = a 50Hz pulse
 reg [17:0] smallPulse_Limit;
 reg servo_pulse;
 
-//Calculation block
-always @ (posedge clk & enable)
-begin
-	smallPulse_Limit = 25000 + (320 * data); //Need better servos or calculation through trial and error... 
+//Calculation block - hardcoded
+always @ (posedge clk) begin
+	if (enable) begin
+		smallPulse_Limit = 25000 + (320 * data); //Need better servos or calculation through trial and error...
+		
+	end
 end
-
-//Moevement block
-always @ (posedge clk & enable)
-begin
-	if (fullPulse_Count > 1500000) fullPulse_Count <= 0; //pulse every 50hz, 30ms period
-	else fullPulse_Count <= fullPulse_Count + 1;
+//Movement block
+always @ (posedge clk) begin
+	if (enable) begin //modified always blocks to ensure synchronous reset, otherwise any glitch can trigger always block + we fix Quartus complaints
+		if (fullPulse_Count > 1500000) fullPulse_Count <= 0; //pulse every 50hz, 30ms period
+		else fullPulse_Count <= fullPulse_Count + 1;
 	
-	if (smallPulse_Limit > fullPulse_Count) servo_pulse <= 1;
-	else servo_pulse <= 0;
+		if (smallPulse_Limit > fullPulse_Count) servo_pulse <= 1;
+		else servo_pulse <= 0;
+	end
 end
 endmodule

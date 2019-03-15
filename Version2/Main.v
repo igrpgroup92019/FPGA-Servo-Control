@@ -1,6 +1,7 @@
 module Main
 (
-	input	clk, command, confirm, reset, colour,
+	input clk, command, confirm, reset, 
+	
 	output turntable_out, track_out, data_ready,
 	output wire[9:0] servo_instr,
 	
@@ -30,6 +31,7 @@ TODO:
 	reg [1:0] state;
 	parameter S0 = 0, S1 = 1, S2 = 2, S3 = 3;
 	
+	
 	// Assignments:
 	reg task_finished = 0; // operation completed, used to reset instruction
 	
@@ -54,7 +56,7 @@ TODO:
 	
 	
 	// Determine the next state
-	always @ (posedge clk or posedge reset) begin
+	always @ (posedge clk) begin
 		if (reset)
 			state <= S0;
 		else
@@ -63,11 +65,15 @@ TODO:
 				
 					if(instruction_ready) begin
 					
+						track_position <= 2'b10000000;
+						turntable_position <= 2'b10000000;
+						
 							task_finished <= 0;
-							if( (servo_instr[9] == 0) && (servo_instr[8] == 0) ) state <= 0; // 00 - stay in State 0
-							else if( (servo_instr[9]) == 1 && (servo_instr[8] == 1) ) state <= 3;
+							
+							if( (servo_instr[9]) == 1 && (servo_instr[8] == 1) ) state <= 3; //11 - go to state 3
+							else if(servo_instr[9] == 1) state <= 2;  // 10 - go to State 2
 							else if(servo_instr[8] == 1) state <= 1; // 01 - go to State 1
-							else state <= 2; // 10 - go to State 2
+						//	else state <= 0;
 							
 						end
 					//else state <= 0;
@@ -77,7 +83,7 @@ TODO:
 				
 					//if(instruction_ready) begin
 					
-						if(task_finished | reset | colour) state <= 0; //go to state 0 if colour is found
+						if(task_finished | reset ) state <= 0; //go to state 0 if colour is found
 						//until color is found, instruction_ready = 0 ?
 						track_enable <= 0;
 						turntable_enable <= 1;

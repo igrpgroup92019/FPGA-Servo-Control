@@ -17,6 +17,7 @@ always @ (posedge clk) begin
 	case(state)
 		
 		counting : begin  //State 0
+		
 			instruction_ready <= 0;
 			if(reset) begin
 				instruction <= 0;
@@ -24,33 +25,42 @@ always @ (posedge clk) begin
 			end
 			
 			if(!reset && !confirm_bit) begin
-				waiting_bit <= 1;
+				//waiting_bit <= 1;
 				if(counter < 10) state = receive;
 				else state = complete;
 			end
+			
 		end
 		
 		receive : begin   //State 1
+			waiting_bit <= 1; //want waiting_bit = 1 only when we receive data, we DON'T want it = 1 if we go to complete
+			
 			if(reset) state = counting;
+			
 			else if(confirm_bit) begin
-				new_bit <= data_bit;
 				waiting_bit <= 0;
+				new_bit <= data_bit;
 				state <= confirmed;
 			end
+			
 		end
 		
 		confirmed : begin //State 2
+		
 			if (confirmed_timer > 10) begin
 			counter = counter + 1;
 			instruction <= {instruction[8:0], new_bit};
 			state <= counting;
 			end
 			else confirmed_timer = confirmed_timer + 1;
+			
 		end
 		
 		complete : begin  //State 3
+		
 			instruction_ready <= 1;
 			if(reset) state <= counting;
+			
 		end
 		
 	endcase
