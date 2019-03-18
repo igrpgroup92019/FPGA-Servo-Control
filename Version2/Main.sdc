@@ -1,4 +1,4 @@
-## Generated SDC file "Main.out.sdc"
+## Generated SDC file "Main.sdc"
 
 ## Copyright (C) 1991-2013 Altera Corporation
 ## Your use of Altera Corporation's design tools, logic functions 
@@ -19,7 +19,7 @@
 ## PROGRAM "Quartus II"
 ## VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
-## DATE    "Thu Mar 14 23:32:59 2019"
+## DATE    "Fri Mar 15 16:58:07 2019"
 
 ##
 ## DEVICE  "EP2C20F484C7"
@@ -73,6 +73,7 @@ set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {res
 set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {reset}]
 
 
+
 #**************************************************************
 # Set Output Delay
 #**************************************************************
@@ -94,6 +95,10 @@ set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {track_out}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {turntable_out}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {~LVDS91p/nCEO~}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {state[0]}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {state[1]}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {instr_state_LED[0]}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {instr_state_LED[1]}]
 
 
 #**************************************************************

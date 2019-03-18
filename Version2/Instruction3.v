@@ -1,10 +1,10 @@
-module Instruction2
+module Instruction3 
 (
 	input	clk, data_bit, confirm_bit, reset,
 	output reg instruction_ready, data_ready,
 	output reg[9:0] instruction,
 	output reg[1:0] state
-);
+); //Writing instruction type 3, hopefully this time it's okay
 
 //reg[1:0] state;
 parameter counting = 0, receive = 1, confirmed = 2, complete = 3;

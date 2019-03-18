@@ -1,0 +1,8 @@
+LPM_DIRECTION=LEFT
+LPM_TYPE=LPM_SHIFTREG
+LPM_WIDTH=10
+DEVICE_FAMILY="Cyclone II"
+clock
+sclr
+shiftin
+q
