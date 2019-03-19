@@ -28,66 +28,92 @@ reg new_bit;
 	.q(instruction);*/
 
 always @ (posedge clk) begin
+if(reset) begin
+	instruction <= 0;
+	counter <= 0;
+	state <= counting;
+end
+
+	else begin
+
 	case(state)
 		
 		counting : begin  //State 0
-			
-			instruction_ready <= 0;
-			data_ack <= 0;
+			//if(data_ack) begin
+				instruction_ready <= 0;
+				data_ack <= 0;
+			//end
 			
 			if(!reset) begin
-				if(counter < 10) begin
-					if(data_ready == 1) state <= receive; //wait here until data_ready = 1
+				if(counter < 11) begin
+					if(data_ready == 1) begin
+						
+						state <= receive; //wait here until data_ready = 1
+					end
 				end
-				
+			
 				else state <= complete;
 			end
 			
-			else begin //if reset == 1
-				instruction <= 0;
-				counter <= 0;
-			end
+			//else begin //if reset == 1
+				//instruction <= 0;
+			//	counter <= 0;
+			//end
 			
 		end
 		
 		receive : begin   //State 1
-			if(!reset) begin
+			if(!reset && !data_ack) begin
+		
 				new_bit <= data_bit; //buffer into a register to avoid multiple bits
-				instruction <= {instruction[8:0], new_bit};
+				instruction <= {instruction[8:0], data_bit};
 				counter = counter + 1;
-				state <= acknowledge;
+				
+				state <= acknowledge; //mucho importante!!
+				
 			end
 			
-			else begin
-				instruction <= 0;
-				counter <= 0;
-				state <= counting;
-			end
+			
+			//else begin //if reset == 1
+				//instruction <= 0;
+				//counter <= 0;
+				//state <= counting;
+			//end
 		end
 		
 		acknowledge : begin //State 2
-			if(!reset) begin
-				data_ack <= 1;
-				state <= counting;
-			end
+			//if(!reset) begin
 			
-			else begin
-				instruction <= 0;
-				counter <= 0;
+			data_ack <= 1;
+				
+			if(!data_ready) begin 
 				state <= counting;
 			end
+			//end
+			
+	//	else begin //if reset == 1
+		//		instruction <= 0;
+		//		counter <= 0;
+		//		state <= counting;
+		//	end
 		end
 		
 		complete : begin  //State 3
-		
-			instruction_ready <= 1;
-			counter <= 0;
-			if(reset) state <= counting; //need reset to jump back to counting, plus its good to have instruction_ready = 1 for a while
+			if(!reset) begin
+				instruction_ready <= 1;
+				data_ack <= 1;
+				counter <= 0;
+			end
+			//if(reset) state <= counting; //need reset to jump back to counting, plus its good to have instruction_ready = 1 for a while
 			
 		end
 		
+		default: state<=counting;
+		
 	endcase
 	
+	end
 end
+	
 
 endmodule

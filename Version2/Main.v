@@ -2,7 +2,7 @@ module Main
 (
 	input clk, data_ready, data_bit, reset, 
 	
-	output turntable_out, track_out, data_ack,
+	output turntable_out, track_out, data_ack, data_ready_LED,
 	output wire[9:0] servo_instr,
 	
 	// Debug
@@ -43,8 +43,8 @@ OUTPUTS:
 	reg[7:0] track_position;
 	reg[7:0] turntable_position;
 	
-	wire se1 = !reset & track_enable; //if reset, servo should stop
-	wire se2 = !reset & turntable_enable; //disconnect from reset to see if servo doesnt stop because of that (shouldnt be)
+	wire se1 = !reset && track_enable; //if reset, servo should stop
+	wire se2 = !reset && turntable_enable; //disconnect from reset to see if servo doesnt stop because of that (shouldnt be)
 	wire retracted = 0, extended = 0; //TODO: Use with touch switch.
 	//wire instruction_ready;
 	//wire servo_track, servo_turntable;
@@ -52,10 +52,12 @@ OUTPUTS:
 	// Debug
 	assign data_ack_LED = data_ack;
 	assign reset_LED = reset;
+	assign data_ready_LED = data_ready;
 	/* Debug LEDs:
+		LED G3 - data_ready
 		LED G2 - instruction_ready
 		LED G1 - reset
-		LED G0 - data_ready
+		LED G0 - data_ack
 		
 		LED G7, G6 - current state (should mirror red LEDs 9 and 8)
 		LED G5, G4 - current instruction state (0 - counting, 1 - receive, 2 - confirmed, 3 - complete)
@@ -92,7 +94,7 @@ OUTPUTS:
 						
 							task_finished <= 0;
 							
-							if( (servo_instr[9]) == 1 && (servo_instr[8] == 1) ) state <= 3; //11 - go to state 3
+							if( (servo_instr[9] == 1) && (servo_instr[8] == 1) ) state <= 3; //11 - go to state 3
 							else if(servo_instr[9] == 1) state <= 2;  // 10 - go to State 2
 							else if(servo_instr[8] == 1) state <= 1; // 01 - go to State 1
 						//	else state <= 0; - don't need 
@@ -102,7 +104,7 @@ OUTPUTS:
 					end
 				S1 : begin
 				
-					//if(instruction_ready) begin //not bad to have this here, however servo wont turn if we immediately start passing another instruction if it is here
+					//if(instruction_ready) begin //not bad to have this here, however servo won't turn if we immediately start passing another instruction if it is here
 					
 						//if(task_finished | reset ) state <= 0; //go to state 0 if colour is found
 						track_enable <= 0;

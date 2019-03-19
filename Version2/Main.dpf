@@ -6,8 +6,6 @@
 		</pin>
 		<pin name="command" source="Pin Planner" >
 		</pin>
-		<pin name="data_ready_LED" source="Pin Planner" >
-		</pin>
 	</pin_info>
 	<buses>
 	</buses>
