@@ -35,9 +35,9 @@ always @ (posedge clk) begin
 				//data_ready <= 1;
 				if(counter < 10) begin
 					data_ready <= 1; //want data_ready = 1 only when we receive data, we DON'T want it = 1 if we go to complete
-					state = receive;
+					state <= receive;
 				end
-				else state = complete;
+				else state <= complete;
 			end
 			
 		end
@@ -67,6 +67,7 @@ always @ (posedge clk) begin
 		complete : begin  //State 3
 		
 			instruction_ready <= 1;
+			counter <= 0; //hmm... counter should be reset here, shouldn't matter if it isn't but better add it for reference at least
 			if(reset) state <= counting;
 			
 		end

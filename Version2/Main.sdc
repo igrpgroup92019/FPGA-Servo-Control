@@ -65,10 +65,10 @@ create_clock -name {clk} -period 10.000 -waveform { 0.000 5.000 } [get_ports {cl
 
 set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {clk}]
 set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {clk}]
-set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {command}]
-set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {command}]
-set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {confirm}]
-set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {confirm}]
+set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {data_ready}]
+set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {data_ready}]
+set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {data_bit}]
+set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {data_bit}]
 set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {reset}]
 set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {reset}]
 
@@ -78,8 +78,8 @@ set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {res
 # Set Output Delay
 #**************************************************************
 
-set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ready}]
-set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ready_LED}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ack_LED}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ack}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {instruction_ready}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {reset_LED}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_instr[0]}]

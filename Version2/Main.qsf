@@ -56,7 +56,6 @@ set_global_assignment -name VERILOG_FILE ServoDriver_50MHz_30ms.v
 set_global_assignment -name VERILOG_FILE Instruction.v
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
-set_location_assignment PIN_H13 -to confirm
 set_location_assignment PIN_P18 -to reset
 set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Instruction_Test.vwf
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
@@ -76,7 +75,6 @@ set_location_assignment PIN_Y19 -to servo_instr[3]
 set_location_assignment PIN_U19 -to servo_instr[2]
 set_location_assignment PIN_R19 -to servo_instr[1]
 set_location_assignment PIN_R20 -to servo_instr[0]
-set_location_assignment PIN_H12 -to command
 set_location_assignment PIN_L19 -to track_out
 set_location_assignment PIN_L18 -to turntable_out
 set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING OFF
@@ -86,7 +84,6 @@ set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
 set_global_assignment -name SAFE_STATE_MACHINE ON
 set_global_assignment -name ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION ON
 set_location_assignment PIN_P17 -to data_ready
-set_location_assignment PIN_U22 -to data_ready_LED
 set_location_assignment PIN_U21 -to reset_LED
 set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
 set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
@@ -111,5 +108,8 @@ set_location_assignment PIN_Y21 -to state[1]
 set_location_assignment PIN_W21 -to instr_state_LED[0]
 set_location_assignment PIN_W22 -to instr_state_LED[1]
 set_global_assignment -name QIP_FILE InstructionRegister.qip
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name VERILOG_FILE Instruction3.v
+set_location_assignment PIN_H12 -to data_bit
+set_location_assignment PIN_U22 -to data_ack_LED
+set_location_assignment PIN_H13 -to data_ack
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

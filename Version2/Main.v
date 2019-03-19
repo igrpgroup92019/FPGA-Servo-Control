@@ -1,12 +1,12 @@
 module Main
 (
-	input clk, command, confirm, reset, 
+	input clk, data_ready, data_bit, reset, 
 	
-	output turntable_out, track_out, data_ready,
+	output turntable_out, track_out, data_ack,
 	output wire[9:0] servo_instr,
 	
-	// debug
-	output data_ready_LED,
+	// Debug
+	output data_ack_LED,
 	output reset_LED,
 	output instruction_ready,
 	output reg[1:0] state,
@@ -15,42 +15,45 @@ module Main
 	
 /*
 INPUTS:
-	clk - clock
-	confirm - confirming current bit, comes from MBED
+	clk - clock tick
+	data_ready - high if MBED is ready to serve bits, low if not
+	data_bit - the data line
 	reset - self-explanatory, resets to state 0, stops whatever is going on
-	data_ready - feedback to MBED
-	instruction_ready - checks whether the FPGA is ready to receive another instruction (= data_ready)
-OUTPUTS:
-	servo_track, servo turntable - two helper wires, look to remove from outputs if allowed
-	servo_instr - instruction_ready 10-bit instruction 
-TODO:
-	ensure good logic with clear/instruction_ready
 	
+OUTPUTS:
+	data_ack - (in place of CONFIRM) acknowledgement line, where the FPGA acknowledges a received bit from the data line
+	track/turntable_out - output signal to servos
+	servo_instr - instruction_ready 10-bit instruction 
+	instruction_ready - checks whether the FPGA is ready to receive another instruction (= data_ready)
+
+	TODO:
+	ensure good logic with clear/instruction_ready
 */
 	
-	// Declare states and state register:
+	//Declare states and state register:
 	//reg [1:0] state;
 	parameter S0 = 0, S1 = 1, S2 = 2, S3 = 3;
 	
 	
 	// Assignments:
-	reg task_finished = 0; // operation completed, used to reset instruction
+	reg task_finished = 0; // operation completed, used to reset instruction, IMPLEMENT FURTHER
 	
 	reg track_enable = 0; //enable bit for the track
 	reg turntable_enable = 0; //enable bit for the turntable
 	reg[7:0] track_position;
 	reg[7:0] turntable_position;
 	
-	wire se1 = !reset & track_enable;
-	wire se2 = !reset & turntable_enable;
-	wire retracted = 0, extended = 0;
+	wire se1 = !reset & track_enable; //if reset, servo should stop
+	wire se2 = !reset & turntable_enable; //disconnect from reset to see if servo doesnt stop because of that (shouldnt be)
+	wire retracted = 0, extended = 0; //TODO: Use with touch switch.
 	//wire instruction_ready;
 	//wire servo_track, servo_turntable;
 	
-	// debug
-	assign data_ready_LED = data_ready;
+	// Debug
+	assign data_ack_LED = data_ack;
 	assign reset_LED = reset;
-	/* LED G2 - instruction_ready
+	/* Debug LEDs:
+		LED G2 - instruction_ready
 		LED G1 - reset
 		LED G0 - data_ready
 		
@@ -58,17 +61,18 @@ TODO:
 		LED G5, G4 - current instruction state (0 - counting, 1 - receive, 2 - confirmed, 3 - complete)
 		
 		Issues:
-		- instruction gets wiped sometimes randomly, data_ready flashes once while that happens (i think)
-		- missed bit here or there
+		- instruction (2) gets wiped sometimes randomly, data_ready flashes once while that happens (i think)
+		- missed bit here or there (2)
 		- servo doesn't always stop when it has to
+		- dim LEDs why? any problems in main?
 	*/
 	
-	Instruction2 instr (clk, command, confirm, reset, instruction_ready, data_ready, servo_instr, instr_state_LED);
+	Instruction3 instr (clk, data_ready, data_bit, reset, instruction_ready, data_ack, servo_instr, instr_state_LED);
 	ServoDriver_50MHz_30ms servo_turntable (clk, se1, turntable_position, track_out);
 	ServoDriver_50MHz_30ms servo_track (clk, se2, track_position, turntable_out);
 	
 	
-	// Determine the next state
+	// State machine
 	always @ (posedge clk) begin
 		if (reset == 1) begin
 			state <= S0;
@@ -91,18 +95,16 @@ TODO:
 							if( (servo_instr[9]) == 1 && (servo_instr[8] == 1) ) state <= 3; //11 - go to state 3
 							else if(servo_instr[9] == 1) state <= 2;  // 10 - go to State 2
 							else if(servo_instr[8] == 1) state <= 1; // 01 - go to State 1
-						//	else state <= 0;
+						//	else state <= 0; - don't need 
 							
 						end
-					//else state <= 0;
 					
 					end
 				S1 : begin
 				
-					//if(instruction_ready) begin
+					//if(instruction_ready) begin //not bad to have this here, however servo wont turn if we immediately start passing another instruction if it is here
 					
 						//if(task_finished | reset ) state <= 0; //go to state 0 if colour is found
-						//until color is found, instruction_ready = 0 ?
 						track_enable <= 0;
 						turntable_enable <= 1;
 						
