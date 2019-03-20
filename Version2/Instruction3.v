@@ -21,11 +21,6 @@ parameter counting = 0, receive = 1, acknowledge = 2, complete = 3;
 reg[3:0] counter;
 reg new_bit;
 
-/*InstructionRegister instr_reg (   <- use this ?
-	.clock(clk),
-	.sclr(reset),
-	.shiftin(put a wire here that is = data_bit),
-	.q(instruction);*/
 
 always @ (posedge clk) begin
 if(reset) begin
@@ -39,10 +34,9 @@ end
 	case(state)
 		
 		counting : begin  //State 0
-			//if(data_ack) begin
-				instruction_ready <= 0;
-				data_ack <= 0;
-			//end
+
+			instruction_ready <= 0;
+			data_ack <= 0;
 			
 			if(!reset) begin
 				if(counter < 11) begin
@@ -55,60 +49,43 @@ end
 				else state <= complete;
 			end
 			
-			//else begin //if reset == 1
-				//instruction <= 0;
-			//	counter <= 0;
-			//end
-			
 		end
 		
 		receive : begin   //State 1
-			if(!reset && !data_ack) begin
 		
-				new_bit <= data_bit; //buffer into a register to avoid multiple bits
+			if(!reset && !data_ack) begin
+			
+				//new_bit <= data_bit; //buffer into a register to avoid multiple bits
 				instruction <= {instruction[8:0], data_bit};
 				counter = counter + 1;
 				
-				state <= acknowledge; //mucho importante!!
+				state <= acknowledge;
 				
 			end
 			
-			
-			//else begin //if reset == 1
-				//instruction <= 0;
-				//counter <= 0;
-				//state <= counting;
-			//end
 		end
 		
 		acknowledge : begin //State 2
-			//if(!reset) begin
-			
+		
 			data_ack <= 1;
 				
 			if(!data_ready) begin 
 				state <= counting;
 			end
-			//end
 			
-	//	else begin //if reset == 1
-		//		instruction <= 0;
-		//		counter <= 0;
-		//		state <= counting;
-		//	end
 		end
 		
 		complete : begin  //State 3
+		
 			if(!reset) begin
 				instruction_ready <= 1;
 				data_ack <= 1;
 				counter <= 0;
 			end
-			//if(reset) state <= counting; //need reset to jump back to counting, plus its good to have instruction_ready = 1 for a while
 			
 		end
 		
-		default: state<=counting;
+		default: state <= counting;
 		
 	endcase
 	

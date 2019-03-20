@@ -10,7 +10,10 @@ module Main
 	output reset_LED,
 	output instruction_ready,
 	output reg[1:0] state,
-	output wire[1:0] instr_state_LED
+	output wire[1:0] instr_state_LED,
+	
+	output wire[16:0] data_out,
+	output wire[16:0] data_out2
 );
 	
 /*
@@ -43,8 +46,8 @@ OUTPUTS:
 	reg[7:0] track_position;
 	reg[7:0] turntable_position;
 	
-	wire se1 = !reset && track_enable; //if reset, servo should stop
-	wire se2 = !reset && turntable_enable; //disconnect from reset to see if servo doesnt stop because of that (shouldnt be)
+	wire se1 = !reset && turntable_enable; //if reset, servo should stop
+	wire se2 = !reset && track_enable; //disconnect from reset to see if servo doesnt stop because of that (shouldnt be)
 	wire retracted = 0, extended = 0; //TODO: Use with touch switch.
 	//wire instruction_ready;
 	//wire servo_track, servo_turntable;
@@ -70,8 +73,8 @@ OUTPUTS:
 	*/
 	
 	Instruction3 instr (clk, data_ready, data_bit, reset, instruction_ready, data_ack, servo_instr, instr_state_LED);
-	ServoDriver_50MHz_30ms servo_turntable (clk, se1, turntable_position, track_out);
-	ServoDriver_50MHz_30ms servo_track (clk, se2, track_position, turntable_out);
+	ServoDriver_24MHz_30ms servo_turntable (.clk(clk), .enable(se1), .data(servo_instr[7:0]), .servo_pulse(turntable_out), .smallPulse_Limit(data_out));
+	ServoDriver_24MHz_30ms servo_track (.clk(clk), .enable(se2), .data(track_position), .servo_pulse(track_out), .smallPulse_Limit(data_out2));
 	
 	
 	// State machine
@@ -112,7 +115,7 @@ OUTPUTS:
 						
 						turntable_position <= servo_instr[7:0];
 						task_finished <= 1; //13.03.19
-						state <= 0;
+						//if(reset) state <= 0;
 					//end
 					//else state <= 0;
 					
