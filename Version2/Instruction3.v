@@ -19,8 +19,6 @@ module Instruction3
 //reg[1:0] state;
 parameter counting = 0, receive = 1, acknowledge = 2, complete = 3;
 reg[3:0] counter;
-reg new_bit;
-
 
 always @ (posedge clk) begin
 if(reset) begin
@@ -29,11 +27,11 @@ if(reset) begin
 	state <= counting;
 end
 
-	else begin
+else begin
 
 	case(state)
 		
-		counting : begin  //State 0
+		counting : begin 		//State 0
 
 			instruction_ready <= 0;
 			data_ack <= 0;
@@ -51,11 +49,10 @@ end
 			
 		end
 		
-		receive : begin   //State 1
+		receive : begin 		//State 1
 		
 			if(!reset && !data_ack) begin
 			
-				//new_bit <= data_bit; //buffer into a register to avoid multiple bits
 				instruction <= {instruction[8:0], data_bit};
 				counter = counter + 1;
 				
@@ -65,7 +62,7 @@ end
 			
 		end
 		
-		acknowledge : begin //State 2
+		acknowledge : begin 	//State 2
 		
 			data_ack <= 1;
 				
@@ -75,7 +72,7 @@ end
 			
 		end
 		
-		complete : begin  //State 3
+		complete : begin 		//State 3
 		
 			if(!reset) begin
 				instruction_ready <= 1;
@@ -87,10 +84,11 @@ end
 		
 		default: state <= counting;
 		
-	endcase
+		endcase
 	
-	end
-end
+	end //end else
+	
+end //end always
 	
 
 endmodule
