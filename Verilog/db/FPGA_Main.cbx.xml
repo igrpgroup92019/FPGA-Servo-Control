@@ -1,7 +1,0 @@
-<?xml version="1.0" ?>
-<LOG_ROOT>
-	<PROJECT NAME="FPGA_Main">
-		<CBX_INST_ENTRY INSTANCE_NAME="|FPGA_Main|Servo_Driver:launcher|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_4ch.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|FPGA_Main|Servo_Driver:turntable|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_4ch.tdf"/>
-	</PROJECT>
-</LOG_ROOT>

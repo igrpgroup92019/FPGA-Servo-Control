@@ -1,4 +1,4 @@
-module ServoDriver_24MHz_30ms(clk, enable, data, servo_pulse, smallPulse_Limit);
+module ServoDriver_24MHz_30ms(clk, enable, data, servo_pulse);
 /*
 INPUTS:
 	clk - clock
@@ -11,7 +11,6 @@ OUTPUTS:
 input clk, enable;
 input wire[7:0] data;
 output servo_pulse;
-output[16:0] smallPulse_Limit;
 
 //Assignments
 //parameter ClkDiv = 94;  // 24000000/1000/256 = 93.75
@@ -20,12 +19,13 @@ reg [16:0] smallPulse_Limit; // 3ms = a 24Hz pulse
 reg servo_pulse;
 
 //Calculation block - hardcoded
-always @ (negedge clk) begin
+always @ (posedge clk) begin
 	if (enable) begin
 	
 		//smallPulse_Limit = 25000 + (320 * data); //Need better servos or calculation through trial and error...
 		//smallPulse_Limit = 11990 + (235 * data); //Need better servos or calculation through trial and error...
 		//smallPulse_Limit = 6000 + (118 * data);  //Need better servos or calculation through trial and error...
+		smallPulse_Limit = 11990 + (170 * data); //Need better servos or calculation through trial and error...
 		
 		if (fullPulse_Count > 719424) fullPulse_Count <= 0; //pulse every 24hz, 30ms period
 		//if (fullPulse_Count > 359712) fullPulse_Count <= 0; //pulse every 24hz, 30ms period
@@ -34,6 +34,7 @@ always @ (negedge clk) begin
 		if (smallPulse_Limit > fullPulse_Count) servo_pulse <= 1;
 		else servo_pulse <= 0;
 	end
+	else servo_pulse <= 0;
 end
 /*
 //Movement block
@@ -42,13 +43,5 @@ always @ (posedge clk) begin
 	end
 end
 */
-always @ (posedge clk) begin
-	if (enable) begin
-	
-		//smallPulse_Limit = 25000 + (320 * data); //Need better servos or calculation through trial and error...
-		smallPulse_Limit = 11990 + (235 * data); //Need better servos or calculation through trial and error...
-		//smallPulse_Limit = 6000 + (118 * data);  //Need better servos or calculation through trial and error...
-		end
-end
 
 endmodule

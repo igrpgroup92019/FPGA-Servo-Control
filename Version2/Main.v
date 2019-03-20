@@ -1,6 +1,6 @@
 module Main
 (
-	input clk, data_ready, data_bit, reset, 
+	input clk, data_ready, data_bit, reset, trackswitch_extended, trackswitch_retracted,
 	
 	output turntable_out, track_out, data_ack, data_ready_LED,
 	output wire[9:0] servo_instr,
@@ -10,10 +10,7 @@ module Main
 	output reset_LED,
 	output instruction_ready,
 	output reg[1:0] state,
-	output wire[1:0] instr_state_LED,
-	
-	output wire[16:0] data_out,
-	output wire[16:0] data_out2
+	output wire[1:0] instr_state_LED
 );
 	
 /*
@@ -73,8 +70,8 @@ OUTPUTS:
 	*/
 	
 	Instruction3 instr (clk, data_ready, data_bit, reset, instruction_ready, data_ack, servo_instr, instr_state_LED);
-	ServoDriver_24MHz_30ms servo_turntable (.clk(clk), .enable(se1), .data(servo_instr[7:0]), .servo_pulse(turntable_out), .smallPulse_Limit(data_out));
-	ServoDriver_24MHz_30ms servo_track (.clk(clk), .enable(se2), .data(track_position), .servo_pulse(track_out), .smallPulse_Limit(data_out2));
+	ServoDriver_24MHz_30ms servo_turntable (.clk(clk), .enable(se1), .data(turntable_position), .servo_pulse(turntable_out));
+	ServoDriver_24MHz_30ms servo_track (.clk(clk), .enable(se2), .data(track_position), .servo_pulse(track_out));
 	
 	
 	// State machine
@@ -127,14 +124,20 @@ OUTPUTS:
 						//if((task_finished | reset) & !extended) state <= 0;
 					//	if(task_finished | reset) state <= 0;
 						
-						//incorporate instruction_ready
-						track_enable <= 1;
-						turntable_enable <= 0;
-						
-						track_position <= 8'b11111111;
-						task_finished <= 1;
-						state <= 0;
-						
+						if (trackswitch_extended) begin
+							//incorporate instruction_ready
+							track_enable <= 1;
+							turntable_enable <= 0;
+							
+							track_position <= 8'b11111111;
+						end
+						else begin
+							track_enable <= 0;
+							task_finished <= 1;
+							
+							if (servo_instr[7]) state <= 3;
+							else state <= 0;
+						end
 					//	end
 					//else state <= 0;
 					
@@ -147,12 +150,17 @@ OUTPUTS:
 						//incorporate instruction_ready
 					//	if(task_finished | reset) state <= 0;
 						
-						track_enable <= 1;
-						turntable_enable <= 0;
-			
-						track_position <= 8'b00000000;
-						task_finished <= 1;
-						state <= 0;
+						if (trackswitch_retracted) begin
+							track_enable <= 1;
+							turntable_enable <= 0;
+				
+							track_position <= 8'b00000000;
+						end
+						else begin
+							track_enable <= 0;
+							task_finished <= 1;
+							state <= 0;
+						end
 						
 					//	end
 					//else state <= 0;
