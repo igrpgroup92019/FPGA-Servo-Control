@@ -1,13 +1,13 @@
-/* Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition */
+/* Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition */
 JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("C:/Users/User/Documents/GitHub/FPGA-Servo-Control/Version2/output_files/") File("Main.sof") MfrSpec(OpMask(1));
+		Device PartName(EPCS4) Path("D:/SourceTree Repos/FPGA/Version2/output_files/") File("Main.pof") MfrSpec(OpMask(3) Child_OpMask(1 3));
 
 ChainEnd;
 
 AlteraBegin;
-	ChainType(JTAG);
+	ChainType(asc);
 AlteraEnd;

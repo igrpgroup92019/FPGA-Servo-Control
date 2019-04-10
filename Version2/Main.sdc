@@ -71,6 +71,10 @@ set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {dat
 set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {data_bit}]
 set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {reset}]
 set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {reset}]
+#set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {trackswitch_extended}]
+#set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {trackswitch_extended}]
+#set_input_delay -add_delay -max -clock [get_clocks {clk}]  3.000 [get_ports {trackswitch_retracted}]
+#set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {trackswitch_retracted}]
 
 
 
@@ -78,10 +82,10 @@ set_input_delay -add_delay -min -clock [get_clocks {clk}]  2.000 [get_ports {res
 # Set Output Delay
 #**************************************************************
 
-set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ack_LED}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {turntable_out}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {track_out}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ack}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {instruction_ready}]
-set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {reset_LED}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_instr[0]}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_instr[1]}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_instr[2]}]
@@ -92,9 +96,10 @@ set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_instr[7]}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_instr[8]}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {servo_instr[9]}]
-set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {track_out}]
-set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {turntable_out}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {~LVDS91p/nCEO~}]
+#set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ready_LED}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {data_ack_LED}]
+set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {reset_LED}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {state[0]}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {state[1]}]
 set_output_delay -add_delay  -clock [get_clocks {clk}]  2.000 [get_ports {instr_state_LED[0]}]
